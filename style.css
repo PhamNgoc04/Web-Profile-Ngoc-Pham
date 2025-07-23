@@ -1,48 +1,39 @@
-/* FILE: style.css */
-
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 
-/* =============================================
-   1. VARIABLES & THEME SETUP
-   ============================================= */
+/* --- BIẾN MÀU SẮC & GIAO DIỆN --- */
 :root {
     --color-primary: #f9bf3f;
     --color-dark-bg: #121212;
     --color-dark-gray: #1e1e1e;
     --color-light-bg: #f9f9f9;
-    --color-light-gray: #ffffff;
+    --color-light-gray: #e5e5e5;
     --color-white: #ffffff;
     --color-black: #000000;
-    --transition-speed: 0.4s ease;
-}
 
-/* --- Dark Theme (Default) --- */
-body.dark-theme {
     --bg-color: var(--color-dark-bg);
-    --secondary-bg-color: var(--color-dark-gray);
     --text-color: var(--color-white);
-    --border-color: #333;
+    --secondary-bg-color: var(--color-dark-gray);
+
+    --transition-speed: 0.4s ease-in-out; /* ✅ Thêm tốc độ transition */
 }
 
-/* --- Light Theme --- */
 body.light-theme {
     --bg-color: var(--color-light-bg);
-    --secondary-bg-color: var(--color-light-gray);
     --text-color: var(--color-black);
-    --border-color: #e0e0e0;
+    --secondary-bg-color: var(--color-light-gray);
 }
 
-/* =============================================
-   2. GLOBAL STYLES & RESET
-   ============================================= */
+body.index-page {
+    min-height: 101vh; /* ép trang Home dài gấp đôi màn hình */
+}
+
+
+
+/* --- RESET --- */
 * {
-    margin: 0;
+    margin: 0;  
     padding: 0;
     box-sizing: border-box;
-}
-
-html {
-    scroll-behavior: smooth;
 }
 
 body {
@@ -52,92 +43,229 @@ body {
     min-height: 100vh;
     overflow-x: hidden;
     transition: background var(--transition-speed), color var(--transition-speed);
+    scroll-behavior: smooth; /* ✅ Cuộn mượt */
 }
 
-/* Custom Scrollbar */
-body::-webkit-scrollbar {
-    width: 8px;
-}
-body::-webkit-scrollbar-track {
-    background: var(--secondary-bg-color);
-}
-body::-webkit-scrollbar-thumb {
-    background: var(--color-primary);
-    border-radius: 10px;
-}
-body::-webkit-scrollbar-thumb:hover {
-    background: #e0a800;
+/* Fade effect for body */
+body.fade-in {
+    opacity: 0;
+    transition: opacity var(--transition-speed);
 }
 
-/* Transition Overlay */
+body {
+    opacity: 1;
+    transition: opacity var(--transition-speed);
+}
+
+/* Overlay chuyển trang (Hiệu ứng fade-out) */
 .transition-overlay {
     position: fixed;
     top: 0; left: 0;
-    width: 100vw; height: 100vh;
+    width: 100vw;
+    height: 100vh;
     background: var(--bg-color);
     opacity: 0;
     pointer-events: none;
-    transition: opacity 0.4s ease-in-out, background var(--transition-speed);
+    transition: opacity var(--transition-speed), background var(--transition-speed);
     z-index: 9999;
 }
+
 .transition-overlay.active {
     opacity: 1;
     pointer-events: auto;
 }
 
-/* =============================================
-   3. COMMON COMPONENTS & LAYOUT
-   ============================================= */
+/* --- SCROLLBAR CUSTOM --- */
+body::-webkit-scrollbar {
+    width: 8px;
+}
 
-/* --- Main Container Wrapper --- */
-.main-wrapper {
+body::-webkit-scrollbar-track {
+    background: var(--secondary-bg-color);
+    border-radius: 10px;
+}
+
+body::-webkit-scrollbar-thumb {
+    background: var(--color-primary);
+    border-radius: 10px;
+    transition: background 0.3s;
+}
+
+body::-webkit-scrollbar-thumb:hover {
+    background: #f1b000;
+}
+
+
+/* About Container cuộn mượt */
+.about-container {
+    padding: 50px;
+    max-width: 1000px;
+    margin: auto;
+}
+
+/* Fade effect for body */
+body.fade-in {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+body {
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
+}
+
+/* Overlay chuyển trang */
+.transition-overlay {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: var(--bg-color);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease-in-out;
+    z-index: 9999;
+}
+
+.transition-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+
+
+/* --- LAYOUT CHÍNH --- */
+.main-container {
+    display: flex;
+    flex-direction: row;
+    width: 90%;
+    max-width: 1200px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* LEFT PANEL */
+.left-panel {
+    flex: 5; /* Tăng tỷ lệ để panel trái rộng hơn */
+    width: 50%;
+    background: linear-gradient(135deg, var(--color-primary), #ffecb3);
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
-    padding: 2rem;
+    position: relative;
+    clip-path: polygon(0 0, 100% 0, 85% 100%, 0% 100%); /* Góc xiên đẹp */
 }
 
-/* --- General Headings --- */
-h1, h2, h3, h4, h5, h6 {
-    color: var(--text-color);
-    transition: color var(--transition-speed);
-}
-.highlight {
-    color: var(--color-primary);
+.image-container {
+    width: 300px; /* Tăng kích thước ảnh */
+    height: 420px;
+    border-radius: 25px;
+    overflow: hidden;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
 }
 
-/* --- Buttons --- */
-.btn {
-    display: inline-flex;
+.image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.4s ease;
+}
+
+.image-container img:hover {
+    transform: scale(1.1);
+}
+
+.image-container img {
+    outline: 2px solid red; /* Kiểm tra ảnh có đúng vùng container không */
+}
+
+
+/* RIGHT PANEL */
+.content-panel {
+    width: 60%;
+    background: var(--bg-color);
+    padding: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+.content-panel .line {
+    display: inline-block;
+    width: 50px;
+    height: 4px;
+    background: var(--color-primary);
+    margin-right: 15px;
+    border-radius: 5px;
+}
+
+.content-panel h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    display: flex;
     align-items: center;
+    color: var(--text-color); /* ✅ Thêm dòng này */
+    transition: color 0.4s ease; /* Mượt khi đổi theme */
+}
+
+.content-panel h2 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    font-weight: 500;
+    color: var(--text-color); /* ✅ Thêm dòng này */
+    transition: color 0.4s ease;
+}
+
+.content-panel p {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--text-color);
+}
+
+/* BUTTONS */
+.buttons-container {
+    display: flex;
+    gap: 15px;
+    padding-top: 20px;
+}
+
+.btn {
     background: var(--secondary-bg-color);
     color: var(--text-color);
     border-radius: 30px;
     border: 2px solid transparent;
+    display: flex;
+    align-items: center;
     padding: 10px 20px;
     font-size: 0.95rem;
     font-weight: 600;
     cursor: pointer;
-    text-decoration: none;
     transition: all 0.3s ease;
 }
+
 .btn .btn-icon {
     background: var(--color-primary);
-    color: var(--color-black);
-    width: 35px; height: 35px;
+    color: #000;
+    width: 35px;
+    height: 35px;
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
     margin-right: 10px;
 }
+
 .btn:hover {
     transform: translateY(-2px);
     border-color: var(--color-primary);
 }
 
-/* --- Right Navigation --- */
+/* --- ĐIỀU HƯỚNG & NÚT GIAO DIỆN --- */
 .right-nav {
     position: fixed;
     top: 50%;
@@ -146,21 +274,15 @@ h1, h2, h3, h4, h5, h6 {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 15px;
-    z-index: 100;
+    gap: 40px;
 }
-.right-nav ul {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
+
 .theme-toggle, .nav-link {
-    position: relative;
-    width: 50px; height: 50px;
+    position: relative; /* cần cho tooltip */
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
     background-color: var(--secondary-bg-color);
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -169,12 +291,15 @@ h1, h2, h3, h4, h5, h6 {
     transition: all 0.3s ease;
     text-decoration: none;
 }
-.theme-toggle:hover, .nav-link:hover, .nav-link.active {
+
+.theme-toggle:hover, .nav-link:hover {
     background-color: var(--color-primary);
     color: var(--color-black);
 }
+
+/* Tooltip cho nav-link */
 .nav-link::after {
-    content: attr(data-tooltip);
+    content: attr(data-tooltip); /* Lấy tên từ data-tooltip */
     position: absolute;
     right: 60px;
     background: var(--secondary-bg-color);
@@ -187,305 +312,1008 @@ h1, h2, h3, h4, h5, h6 {
     transform: translateX(10px);
     transition: opacity 0.3s ease, transform 0.3s ease;
     white-space: nowrap;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
+
 .nav-link:hover::after {
     opacity: 1;
     transform: translateX(0);
 }
 
-/* =============================================
-   4. PAGE-SPECIFIC STYLES
-   ============================================= */
 
-/* --- INDEX PAGE --- */
-.main-container {
+.right-nav ul {
+    list-style: none;
     display: flex;
-    width: 100%;
-    max-width: 1200px;
-    background: var(--bg-color);
-    border-radius: 20px;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
-    overflow: hidden;
+    flex-direction: column;
+    gap: 20px;
 }
-.left-panel {
-    flex: 5;
-    background: linear-gradient(135deg, var(--color-primary), #ffecb3);
+
+.nav-link.active {
+    background-color: var(--color-primary);
+    color: var(--color-black);
+}
+
+/* Tech stack */
+.tech-stack {
+    margin-top: 30px;
+}
+
+.tech-stack h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 15px;
     display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--color-primary);
+}
+
+.tech-stack ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.tech-stack li {
+    font-size: 1rem;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--text-color);
+}
+
+.tech-stack i {
+    color: var(--color-primary);
+    min-width: 20px;
+}
+
+/* Popup Lightbox */
+.lightbox {
+    display: none; /* Ẩn mặc định */
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.8);
     justify-content: center;
     align-items: center;
-    clip-path: polygon(0 0, 100% 0, 85% 100%, 0% 100%);
-    padding: 2rem;
+    z-index: 1000;
 }
-.image-container {
-    width: clamp(250px, 100%, 350px);
-    aspect-ratio: 3/4;
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+
+.lightbox img.lightbox-img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 10px;
+    box-shadow: 0 8px 30px rgba(255, 255, 255, 0.2);
+}
+
+.lightbox .close-btn {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 2rem;
+    color: white;
     cursor: pointer;
+    transition: color 0.3s;
 }
-.image-container img {
-    width: 100%; height: 100%;
+
+.lightbox .close-btn:hover {
+    color: var(--color-primary);
+}
+
+/* --- ABOUT PAGE STYLE --- */
+.about-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 10px auto;
+    padding: 40px;
+    background: var(--secondary-bg-color);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    color: var(--text-color);
+    animation: fadeIn 0.6s ease;
+}
+
+.about-container h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.about-container .line {
+    display: inline-block;
+    width: 60px;
+    height: 4px;
+    background: var(--color-primary);
+    border-radius: 5px;
+    margin-right: 15px;
+}
+
+.personal-info {
+    margin-bottom: 50px;
+}
+
+.personal-info h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: var(--color-primary);
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 15px;
+    padding-left: 60px;
+    padding-bottom: 20px;
+}
+
+.info-grid p {
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.download-btn {
+    margin-top: 20px;
+    background: var(--color-primary);
+    color: var(--color-black);
+    font-weight: 600;
+    padding: 10px 20px;
+    border-radius: 30px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.download-btn:hover {
+    background: #ffc107;
+}
+
+.skills {
+    margin-top: 40px;
+}
+
+.skills h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: var(--color-primary);
+    text-align: center;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 30px;
+    justify-items: center;
+    align-items: center;
+}
+
+.skills-grid div {
+    background: var(--bg-color);
+    border-radius: 15px;
+    padding: 15px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.skills-grid div:hover {
+    transform: translateY(-5px);
+}
+
+.skills-grid i {
+    font-size: 2rem;
+    color: var(--color-primary);
+    margin-bottom: 8px;
+}
+
+.skills-grid span {
+    display: block;
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+.education {
+    margin-top: 50px;
+}
+
+.education h2 {
+    font-size: 2rem;
+    color: var(--color-primary);
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.education-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+.education-grid div {
+    background: var(--bg-color);
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.education-grid .year {
+    font-weight: bold;
+    color: var(--color-primary);
+    margin-bottom: 5px;
+    display: inline-block;
+}
+
+.education-grid p {
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.nav-link {
+    position: relative;
+}
+
+.tooltip-text {
+    position: absolute;
+    top: 50%;
+    right: 60px;
+    transform: translateY(-50%);
+    background: var(--color-primary);
+    color: var(--color-black);
+    padding: 5px 10px;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s, right 0.3s;
+}
+
+.nav-link:hover .tooltip-text {
+    opacity: 1;
+    right: 70px;
+}
+
+
+
+/*CSS cho Projects*/
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap');
+
+:root {
+    --bg-color: #121212;
+    --primary-text-color: #ffffff;
+    --secondary-text-color: #a0a0a0;
+    --highlight-color: #FFD700; /* Gold */
+    --card-bg-color: #1e1e1e;
+}
+
+.project-item.hidden {
+    display: none;
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--primary-text-color);
+    padding: 2rem 6rem;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-top: 40px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+header h1 {
+    font-size: 3rem;
+    font-weight: 900;
+    letter-spacing: 2px;
+    color: var(--text-color); /* ✅ fix đổi màu theo theme */
+    transition: color 0.4s ease; /* mượt khi đổi theme */
+}
+
+.highlight {
+    color: var(--highlight-color);
+}
+
+header .highlight {
+    color: var(--highlight-color); /* giữ highlight vàng */
+}
+
+.filter-nav {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.filter-btn {
+    background-color: transparent;
+    color: var(--secondary-text-color);
+    border: 1px solid transparent;
+    padding: 0.75rem 1.5rem;
+    margin: 0 0.5rem;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 700;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+}
+
+.filter-btn:hover {
+    color: var(--primary-text-color);
+}
+
+.filter-btn.active {
+    background-color: var(--highlight-color);
+    color: #000;
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 1.5rem;
+}
+
+.project-item {
+    background-color: var(--card-bg-color);
+    border-radius: 10px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.project-item img {
+    width: 100%;
+    height: 100%;
     object-fit: cover;
-    transition: transform 0.4s ease;
+    display: block;
 }
-.image-container:hover img {
-    transform: scale(1.08);
+
+/* Side Navigation */
+.side-nav {
+    position: fixed;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    background-color: #2a2a2a;
+    padding: 0.5rem;
+    border-radius: 30px;
 }
-.content-panel {
-    flex: 6;
-    padding: 4rem;
+
+.nav-icon {
+    color: var(--secondary-text-color);
+    font-size: 1.2rem;
+    padding: 1rem;
+    margin: 0.2rem 0;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.nav-icon:hover {
+    color: var(--highlight-color);
+}
+
+.nav-icon.active-main {
+    background-color: var(--highlight-color);
+    color: #000;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    body {
+        padding: 1rem 2rem;
+    }
+    .filter-nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .filter-btn {
+        margin-bottom: 0.5rem;
+    }
+    .side-nav {
+        bottom: 0;
+        top: auto;
+        left: 50%;
+        transform: translateX(-50%);
+        flex-direction: row;
+        width: 100%;
+        justify-content: space-around;
+        border-radius: 0;
+        padding: 0.2rem 0;
+        background-color: #1f1f1f;
+    }
+    .nav-icon {
+        padding: 0.8rem;
+    }
+} 
+
+/* ========== Contact Page Styles ========== */
+
+.contact-header {
+    text-align: center;
+    margin-bottom: 4rem;
+    position: relative; /* Cần cho hiệu ứng chữ mờ phía sau */
+}
+
+.contact-header h1 {
+    font-size: 3.5rem;
+    font-weight: 900;
+    letter-spacing: 2px;
+    position: relative;
+    z-index: 1;
+}
+
+/* Hiệu ứng chữ "CONTACT" mờ phía sau */
+.contact-header::before {
+    content: 'CONTACT';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 6rem; /* To hơn chữ chính */
+    font-weight: 900;
+    color: rgba(255, 255, 255, 0.05); /* Màu rất mờ */
+    z-index: 0;
+}
+
+.contact-content {
+    display: flex;
+    gap: 3rem;
+}
+
+/* Cột thông tin bên trái */
+.contact-info {
+    flex: 0 0 35%; /* Cột này chiếm khoảng 35% chiều rộng */
+}
+
+.contact-info h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: var(--text-color); /* ✅ fix đổi màu theo theme */
+    transition: color 0.4s ease; /* mượt khi đổi theme */
+
+}
+
+.contact-info p {
+    color: var(--secondary-text-color);
+    line-height: 1.6;
+    margin-bottom: 2rem;
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.info-item .fas {
+    font-size: 1.5rem;
+        color: var(--text-color); /* ✅ fix đổi màu theo theme */
+    transition: color 0.4s ease; /* mượt khi đổi theme */
+}
+
+.info-item h4 {
+    font-size: 1rem;
+    margin-bottom: 0.2rem;
+    color: var(--secondary-text-color);
+}
+
+.info-item p {
+    margin-bottom: 0;
+    color: var(--primary-text-color);
+    font-weight: bold;
+        color: var(--text-color); /* ✅ fix đổi màu theo theme */
+    transition: color 0.4s ease; /* mượt khi đổi theme */
+}
+
+.social-icons {
+    margin-top: 2rem;
+    display: flex;
+    gap: 1rem;
+}
+
+.social-icons a {
+    color: var(--secondary-text-color);
+    font-size: 1.2rem;
+    width: 40px;
+    height: 40px;
+    display: grid;
+    place-items: center;
+    border: 1px solid #333;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: var(--highlight-color);
+    border-color: var(--highlight-color);
+}
+
+/* Cột form bên phải */
+.contact-form {
+    flex: 1;
+}
+
+.form-row {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    background-color: #1e1e1e;
+    border: 1px solid #333;
+    border-radius: 25px;
+    padding: 1rem 1.5rem;
+    color: var(--primary-text-color);
+    font-size: 0.9rem;
+    font-family: inherit;
+    transition: border-color 0.3s ease;
+}
+
+.contact-form textarea {
+    border-radius: 20px;
+    height: 180px;
+    resize: none; /* Không cho phép người dùng thay đổi kích thước */
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border-color: var(--highlight-color);
+}
+
+.submit-btn {
+    display: inline-flex;
+    align-items: center;
+    border: 1px solid var(--highlight-color);
+    background-color: transparent;
+    color: var(--primary-text-color);
+    border-radius: 30px;
+    padding: 0;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    overflow: hidden; /* Quan trọng cho hiệu ứng hover */
+    transition: color 0.4s ease-in-out;
+        color: var(--text-color); /* ✅ fix đổi màu theo theme */
+    transition: color 0.4s ease; /* mượt khi đổi theme */
+}
+
+.submit-btn:hover {
+    color: #000;
+}
+
+.submit-btn .btn-text {
+    padding: 0.8rem 1.5rem;
+}
+
+.submit-btn .btn-icon {
+    background-color: var(--highlight-color);
+    color: #000;
+    padding: 0.8rem;
+    border-radius: 50%;
+    margin: 5px;
+    transition: transform 0.3s ease;
+}
+
+.submit-btn:hover .btn-icon {
+    transform: translateX(-10px);
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .contact-content {
+        flex-direction: column;
+    }
+    .contact-header::before {
+        font-size: 4rem;
+    }
+}
+
+.scroll-container {
+    overflow-y: auto; /* Đảm bảo container có thể cuộn */
+    height: 100vh; /* Chiều cao để thử scroll */
+}
+
+/* Custom scrollbar cho Chrome, Edge, Safari */
+.scroll-container::-webkit-scrollbar {
+    width: 8px; /* Độ rộng scrollbar */
+}
+
+.scroll-container::-webkit-scrollbar-track {
+    background: #f0f0f0; /* Màu nền track (phần rãnh) */
+    border-radius: 10px;
+}
+
+.scroll-container::-webkit-scrollbar-thumb {
+    background-color: #f9bf3f; /* 🎨 Màu vàng bạn muốn */
+    border-radius: 10px;
+    border: 2px solid #f0f0f0; /* Viền quanh thumb */
+}
+
+/* Firefox */
+.scroll-container {
+    scrollbar-width: thin; /* Làm scrollbar nhỏ */
+    scrollbar-color: #f9bf3f #f0f0f0; /* thumb màu vàng - track màu xám */
+}
+
+/*Popup Projects*/
+/* Popup container */
+.project-popup {
+    display: none; /* hidden by default */
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(3px);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.project-popup.active {
+    display: flex;
+}
+
+/* Popup box */
+.popup-content {
+    background: #1e1e1e;
+    color: #fff;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 900px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+    position: relative;
+    overflow: hidden;
+    animation: slideUp 0.4s ease;
+}
+
+/* Close button */
+.close-btn {
+    position: absolute;
+    top: 12px;
+    right: 16px;
+    background: none; /* ❌ Không có background */
+    color: var(--text-color); /* đổi màu theo theme */
+    border: none;
+    font-size: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 5px 10px;
+    border-radius: 50%;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.close-btn:hover {
+    transform: rotate(90deg);
+    color: var(--color-primary); /* Khi hover đổi sang màu chính */
+}
+
+/* Grid layout for popup content */
+.popup-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+/* Left: Image */
+.popup-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px 0 0 10px;
+    object-fit: cover;
+}
+
+/* Right: Details */
+.popup-details {
+    padding: 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
-.content-panel h1 {
-    font-size: 3rem; font-weight: 700;
+
+.popup-title {
+    color: #f9bf3f;
+    font-size: 28px;
     margin-bottom: 10px;
-    display: flex; align-items: center;
-}
-.content-panel .line {
-    display: inline-block;
-    width: 50px; height: 4px;
-    background: var(--color-primary);
-    margin-right: 15px; border-radius: 5px;
-}
-.content-panel h2 {
-    font-size: 1.8rem; margin-bottom: 20px;
-    font-weight: 500;
-}
-.content-panel p {
-    font-size: 1rem; line-height: 1.7;
-}
-.tech-stack { margin-top: 30px; }
-.tech-stack h3 {
-    font-size: 1.2rem; margin-bottom: 15px;
-    display: flex; align-items: center;
-    gap: 10px; color: var(--color-primary);
-}
-.tech-stack ul { list-style: none; padding-left: 0; }
-.tech-stack li {
-    font-size: 1rem; margin-bottom: 10px;
-    display: flex; align-items: center;
-    gap: 10px;
-}
-.tech-stack i { color: var(--color-primary); min-width: 20px; }
-.buttons-container { display: flex; gap: 15px; margin-top: 25px; }
-
-/* Lightbox Popup */
-.lightbox {
-    display: none; position: fixed;
-    inset: 0; background: rgba(0, 0, 0, 0.85);
-    justify-content: center; align-items: center;
-    z-index: 1000;
-}
-.lightbox.active { display: flex; }
-.lightbox img {
-    max-width: 90%; max-height: 90%;
-    border-radius: 10px;
-    box-shadow: 0 8px 30px rgba(255, 255, 255, 0.2);
-}
-.lightbox .close-btn {
-    position: absolute; top: 20px; right: 30px;
-    font-size: 2.5rem; color: white;
-    cursor: pointer; transition: color 0.3s;
-}
-.lightbox .close-btn:hover { color: var(--color-primary); }
-
-/* --- ABOUT PAGE --- */
-.about-container {
-    width: 100%; max-width: 1100px;
-    padding: 3rem 4rem;
-    background: var(--secondary-bg-color);
-    border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-}
-.about-container h1 {
-    font-size: 3rem; text-align: center;
-    margin-bottom: 40px;
-}
-.about-container h2 {
-    font-size: 2rem; margin-bottom: 20px;
-    color: var(--color-primary);
-    border-bottom: 2px solid var(--border-color);
-    padding-bottom: 10px;
-}
-.info-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 15px 30px;
-    margin-bottom: 30px;
-}
-.info-grid p { font-size: 1rem; line-height: 1.6; }
-.info-grid a { color: var(--color-primary); text-decoration: none; }
-.info-grid a:hover { text-decoration: underline; }
-.download-btn { margin-top: 20px; }
-.skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-    gap: 20px; justify-items: center; text-align: center;
-}
-.skills-grid > div {
-    background: var(--bg-color);
-    border-radius: 15px; padding: 20px;
-    width: 100%;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease;
-}
-.skills-grid > div:hover { transform: translateY(-5px); }
-.skills-grid span { display: block; margin-top: 10px; font-weight: 500; }
-.education-grid { display: grid; gap: 20px; }
-.education-grid > div {
-    background: var(--bg-color); padding: 20px;
-    border-radius: 10px; border-left: 4px solid var(--color-primary);
-}
-.education-grid .year {
-    font-weight: bold; color: var(--color-primary);
-    margin-bottom: 5px; display: block; font-size: 0.9rem;
 }
 
-/* --- PROJECTS PAGE --- */
-.projects-container {
-    width: 100%; max-width: 1300px;
-    padding: 2rem;
+.popup-description {
+    font-size: 15px;
+    margin-bottom: 15px;
+    color: #ddd;
+    line-height: 1.6;
 }
-.projects-container h1 { font-size: 3rem; text-align: center; margin-bottom: 20px; }
-.filter-nav { text-align: center; margin-bottom: 2.5rem; }
-.filter-btn {
-    background: transparent; color: var(--text-color);
-    border: 1px solid var(--border-color); padding: 0.6rem 1.2rem;
-    margin: 5px; cursor: pointer; font-size: 0.9rem;
-    border-radius: 25px; transition: all 0.3s ease;
-}
-.filter-btn:hover { border-color: var(--color-primary); color: var(--color-primary); }
-.filter-btn.active { background-color: var(--color-primary); color: var(--color-black); border-color: var(--color-primary); }
-.project-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 1.5rem;
-}
-.project-item {
-    background-color: var(--secondary-bg-color);
-    border-radius: 10px; overflow: hidden;
-    cursor: pointer; position: relative;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-.project-item.hide { display: none; }
-.project-item:hover { transform: translateY(-5px); box-shadow: 0 8px 25px rgba(0,0,0,0.3); }
-.project-item img {
-    width: 100%; height: 220px;
-    object-fit: cover; display: block;
-}
-.project-item p {
-    font-weight: bold; padding: 15px;
-    text-align: center;
-}
-/* Project Popup */
-.popup-overlay {
-    display: none; position: fixed; inset: 0;
-    background: rgba(0, 0, 0, 0.85); backdrop-filter: blur(4px);
-    justify-content: center; align-items: center; z-index: 1000;
-}
-.popup-overlay.active { display: flex; }
-.popup-content {
-    background: var(--secondary-bg-color); padding: 25px;
-    border-radius: 10px; width: 90%; max-width: 700px;
-    position: relative;
-}
-.popup-close {
-    position: absolute; top: 10px; right: 15px;
-    background: transparent; border: none; color: var(--text-color);
-    font-size: 24px; cursor: pointer; transition: color 0.3s, transform 0.3s;
-}
-.popup-close:hover { color: var(--color-primary); transform: rotate(90deg); }
-.popup-body img { width: 100%; border-radius: 8px; margin-bottom: 15px; }
-.popup-body h2 { color: var(--color-primary); margin-bottom: 15px; }
-.popup-body p { margin: 8px 0; line-height: 1.6; }
-.popup-body a { color: var(--color-primary); text-decoration: underline; }
 
-/* --- CONTACT PAGE --- */
-.contact-container {
-    width: 100%; max-width: 1100px;
-    padding: 2rem;
+.popup-info {
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
-.contact-container > h1 { font-size: 3rem; text-align: center; margin-bottom: 40px; }
-.contact-content { display: flex; gap: 3rem; background: var(--secondary-bg-color); padding: 2.5rem; border-radius: 20px; }
-.contact-info { flex: 0 0 40%; }
-.contact-info h2 { font-size: 1.8rem; margin-bottom: 1rem; }
-.contact-info > p { color: #ccc; line-height: 1.6; margin-bottom: 2rem; }
-.info-item { display: flex; align-items: center; gap: 1.5rem; margin-bottom: 1.5rem; }
-.info-item i { font-size: 1.5rem; color: var(--color-primary); width: 40px; text-align: center; }
-.info-item h4 { font-size: 1rem; margin-bottom: 0.2rem; color: #aaa; }
-.info-item p { margin-bottom: 0; font-weight: 500; }
-.social-bar { display: flex; gap: 1rem; margin-top: 2rem; }
-.social-bar a {
-    width: 45px; height: 45px;
-    display: flex; justify-content: center; align-items: center;
-    border-radius: 50%; background: var(--bg-color); color: var(--text-color);
-    font-size: 1.2rem; text-decoration: none;
-    transition: all 0.3s ease;
+
+.popup-info li {
+    margin: 6px 0;
+    font-size: 14px;
 }
-.social-bar a:hover { background: var(--color-primary); color: var(--color-black); transform: translateY(-3px); }
-.contact-form { flex: 1; }
-.form-row { display: flex; gap: 1.5rem; margin-bottom: 1.5rem; }
-.contact-form input, .contact-form textarea {
-    width: 100%; background-color: var(--bg-color);
-    border: 1px solid var(--border-color); border-radius: 8px;
-    padding: 1rem; color: var(--text-color);
-    font-size: 0.9rem; font-family: inherit;
-    transition: border-color 0.3s ease;
+
+.popup-info a {
+    color: #f9bf3f;
+    text-decoration: none;
 }
-.contact-form textarea { height: 150px; resize: vertical; }
-.contact-form input:focus, .contact-form textarea:focus { outline: none; border-color: var(--color-primary); }
-.submit-btn {
-    border: 2px solid var(--color-primary);
-    background: var(--color-primary); color: var(--color-black);
-    width: 100%; padding: 12px;
+
+.popup-info a:hover {
+    text-decoration: underline;
 }
-.submit-btn:hover { background: #e0a800; border-color: #e0a800; }
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .popup-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .popup-image img {
+        border-radius: 10px 10px 0 0;
+    }
+}
+
+
+/*====================================================*/
+/* FILE: style.css (Tối ưu + Responsive + Hiệu ứng mượt) */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 
 /* =============================================
-   5. RESPONSIVE DESIGN (MEDIA QUERIES)
+   1. VARIABLES & THEME
    ============================================= */
+:root {
+  --color-primary: #f9bf3f;
+  --color-accent: #e0a800;
+  --color-dark-bg: #121212;
+  --color-dark-gray: #1e1e1e;
+  --color-light-bg: #f9f9f9;
+  --color-light-gray: #ffffff;
+  --color-text-light: #ffffff;
+  --color-text-dark: #000000;
+  --transition-speed: 0.3s ease;
+}
 
-/* --- TABLETS & SMALLER LAPTOPS (<= 992px) --- */
+/* Dark Theme */
+body.dark-theme {
+  --bg-color: var(--color-dark-bg);
+  --secondary-bg-color: var(--color-dark-gray);
+  --text-color: var(--color-text-light);
+  --border-color: #333;
+}
+
+/* Light Theme */
+body.light-theme {
+  --bg-color: var(--color-light-bg);
+  --secondary-bg-color: var(--color-light-gray);
+  --text-color: var(--color-text-dark);
+  --border-color: #ddd;
+}
+
+/* =============================================
+   2. RESET & GLOBAL
+   ============================================= */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+body {
+  font-family: 'Poppins', sans-serif;
+  background: var(--bg-color);
+  color: var(--text-color);
+  transition: background var(--transition-speed), color var(--transition-speed);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: var(--color-primary);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-track {
+  background-color: var(--secondary-bg-color);
+}
+
+/* =============================================
+   3. COMMON COMPONENTS
+   ============================================= */
+h1, h2, h3 {
+  font-weight: 600;
+  color: var(--text-color);
+  transition: color var(--transition-speed);
+}
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: color var(--transition-speed);
+}
+a:hover {
+  color: var(--color-primary);
+}
+button, .btn {
+  background: var(--color-primary);
+  color: var(--color-text-dark);
+  border: none;
+  border-radius: 50px;
+  padding: 0.8rem 1.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.3s ease;
+}
+button:hover, .btn:hover {
+  background: var(--color-accent);
+  transform: translateY(-3px);
+}
+
+/* =============================================
+   4. LAYOUT
+   ============================================= */
+.main-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+}
+.main-container {
+  display: flex;
+  flex-wrap: wrap;
+  background: var(--bg-color);
+  border-radius: 1rem;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  overflow: hidden;
+  max-width: 1200px;
+  width: 100%;
+}
+.left-panel {
+  flex: 1;
+  background: linear-gradient(135deg, var(--color-primary), #ffe07d);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+.image-container {
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  transition: transform 0.3s ease;
+}
+.image-container:hover {
+  transform: scale(1.05);
+}
+.image-container img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.content-panel {
+  flex: 2;
+  padding: 2rem;
+}
+.content-panel h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: var(--color-primary);
+}
+.content-panel p {
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+/* =============================================
+   5. NAVIGATION
+   ============================================= */
+.right-nav {
+  position: fixed;
+  top: 50%;
+  right: 1rem;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.nav-link, .theme-toggle {
+  background: var(--secondary-bg-color);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--text-color);
+  transition: background var(--transition-speed), color var(--transition-speed);
+}
+.nav-link:hover, .theme-toggle:hover {
+  background: var(--color-primary);
+  color: var(--color-text-dark);
+}
+
+/* =============================================
+   6. RESPONSIVE
+   ============================================= */
 @media (max-width: 992px) {
-    .main-container { flex-direction: column; }
-    .left-panel { clip-path: none; width: 100%; }
-    .content-panel { width: 100%; padding: 2.5rem; }
-    .contact-content { flex-direction: column; }
-    .about-container, .contact-container { padding: 2rem; }
+  .main-container {
+    flex-direction: column;
+  }
+  .right-nav {
+    flex-direction: row;
+    bottom: 0;
+    top: auto;
+    right: 0;
+    left: 0;
+    justify-content: space-around;
+    padding: 0.5rem;
+    background: var(--secondary-bg-color);
+    border-top: 1px solid var(--border-color);
+  }
 }
 
-/* --- MOBILE DEVICES (<= 768px) --- */
 @media (max-width: 768px) {
-    body { padding-bottom: 80px; } /* Add space for bottom nav */
-    .main-wrapper { padding: 1rem; }
-    .right-nav {
-        top: auto;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        width: 100%;
-        transform: none;
-        flex-direction: row;
-        justify-content: space-around;
-        background: var(--secondary-bg-color);
-        padding: 10px 0;
-        border-top: 1px solid var(--border-color);
-        gap: 0;
-    }
-    .right-nav ul { flex-direction: row; gap: 10px; }
-    .theme-toggle { display: none; } /* Hide theme toggle on mobile for simplicity */
-    .nav-link { width: 45px; height: 45px; }
-    .nav-link::after { display: none; } /* Hide tooltips on mobile */
-
-    h1 { font-size: 2.2rem !important; }
-    h2 { font-size: 1.5rem !important; }
-
-    .form-row { flex-direction: column; gap: 1rem; margin-bottom: 1rem; }
-    .contact-content { padding: 1.5rem; }
-    .about-container { padding: 1.5rem; }
-    .info-grid { grid-template-columns: 1fr; }
+  .content-panel h1 {
+    font-size: 2rem;
+  }
+  .content-panel p {
+    font-size: 0.95rem;
+  }
 }
+
