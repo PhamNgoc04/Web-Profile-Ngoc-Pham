@@ -1630,11 +1630,12 @@ body::-webkit-scrollbar-thumb:hover {
     text-align: left;
     grid-template-columns: 1fr;
     gap: 1.2rem;
-    margin-left: -6px;; /* Xóa padding tổng thể nếu có */
+    padding-left: 0; /* Xóa padding tổng thể nếu có */
 }
 
 .info-grid > * {
     padding-left: 0px; /* 👈 Nội dung bên trong gần sát trái */
+    margin-left: -6px;
 }
 
 
