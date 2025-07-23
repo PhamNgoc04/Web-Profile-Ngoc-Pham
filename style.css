@@ -1615,41 +1615,42 @@ body::-webkit-scrollbar-thumb:hover {
     }
 
     /* === SỬA LỖI CĂN CHỈNH TRANG ABOUT === */
-    .about-section {
-        padding: 30px 20px;
-        text-align: left;
-        padding-left: 30px;
-    }
+    /* === SỬA LỖI CĂN CHỈNH TRANG ABOUT === */
+.about-section {
+    padding: 30px 20px;
+    text-align: left;
+    padding-left: 30px;
+}
 
-    .about-section h2 {
-        margin-bottom: 1.5rem;
-    }
+.about-section h2 {
+    margin-bottom: 1.5rem;
+}
 
-    .info-grid {
-        text-align: left;
-        grid-template-columns: 1fr; /* Hiển thị 1 cột cho dễ đọc */
-        gap: 1.2rem;
-        padding-left: -10px;
-    }
+.info-grid {
+    text-align: left;
+    grid-template-columns: 1fr; /* Hiển thị 1 cột cho dễ đọc */
+    gap: 1.2rem;
+    margin-left: 15px; /* 👈 Lệch trái 15px chính xác */
+}
 
-    .skills-grid {
-        grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
-        gap: 1.2rem;
-        justify-items: center; /* Căn giữa item */
-    }
+.skills-grid {
+    grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+    gap: 1.2rem;
+    justify-items: center;
+}
 
-    .skill-item {
-        padding: 15px;
-    }
+.skill-item {
+    padding: 15px;
+}
 
-    .education-grid {
-        grid-template-columns: 1fr; /* Mỗi mục là 1 dòng */
-        gap: 1rem;
-    }
+.education-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
 
-    .about-section h2,
-    .about-section p {
-        margin-left: 1px; /* 👈 thêm khoảng lệch nhẹ cho tiêu đề & đoạn văn */
-    }
+.about-section h2,
+.about-section p {
+    margin-left: 1px;
+}
 
 }
