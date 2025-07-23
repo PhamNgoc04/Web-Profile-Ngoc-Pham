@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Projects</title>
+    <style>
+        /* ======= CSS ======= */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #121212;
+            color: #fff;
+        }
+
+        .container {
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+        }
+
+        .highlight {
+            color: #f9bf3f;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .project-item {
+            background: #1e1e1e;
+            padding: 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.3s, background 0.3s;
+        }
+
+        .project-item:hover {
+            background: #2c2c2c;
+            transform: scale(1.05);
+        }
+
+        .project-item img {
+            width: 100%;
+            border-radius: 8px;
+        }
+
+        .project-item p {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        /* Popup */
+        .popup-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .popup-overlay.active {
+            display: flex;
+            animation: fadeIn 0.3s ease forwards;
+        }
+
+        .popup-content {
+            background: #1e1e1e;
+            padding: 20px;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 600px;
+            position: relative;
+            animation: slideUp 0.3s ease forwards;
+        }
+
+        .popup-close {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            background: transparent;
+            border: none;
+            color: #fff;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .popup-body img {
+            width: 100%;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        .popup-body p {
+            margin: 5px 0;
+        }
+
+        .popup-body a {
+            color: #f9bf3f;
+            text-decoration: underline;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(30px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>MY <span class="highlight">PROJECTS</span></h1>
+
+        <div class="project-grid">
+            <div class="project-item" 
+                data-title="MYFOODIE"
+                data-image="img_profile.jpg"
+                data-desc="This is my first project using HTML, CSS, JavaScript clone of Lotteria fast food website."
+                data-created="01/01/2024"
+                data-role="Main developer"
+                data-frontend="CSS, Bootstrap, Javascript"
+                data-backend="None"
+                data-tags="git / html / css / javascript / food"
+                data-source="https://github.com/Ductran201/FastFood"
+                data-demo="https://fast-food-git-main-ductran201s-projects.vercel.app/"
+            >
+                <img src="img_profile.jpg" alt="MYFOODIE">
+                <p>MYFOODIE</p>
+            </div>
+
+            <div class="project-item" 
+                data-title="MYPORTFOLIO"
+                data-image="img_profile.jpg"
+                data-desc="A personal portfolio built with React and TailwindCSS."
+                data-created="15/04/2024"
+                data-role="Main developer"
+                data-frontend="ReactJS, TailwindCSS"
+                data-backend="None"
+                data-tags="react / tailwind / portfolio"
+                data-source="#"
+                data-demo="#"
+            >
+                <img src="img_profile.jpg" alt="MYPORTFOLIO">
+                <p>MYPORTFOLIO</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Popup -->
+    <div class="popup-overlay" id="popup">
+        <div class="popup-content">
+            <button class="popup-close" id="popup-close">&times;</button>
+            <h2 id="popup-title">Project Title</h2>
+            <div class="popup-body">
+                <img id="popup-img" src="" alt="Project Image">
+                <p id="popup-desc"></p>
+                <p><strong>Created:</strong> <span id="popup-created"></span></p>
+                <p><strong>Role:</strong> <span id="popup-role"></span></p>
+                <p><strong>Frontend:</strong> <span id="popup-frontend"></span></p>
+                <p><strong>Backend:</strong> <span id="popup-backend"></span></p>
+                <p><strong>Tags:</strong> <span id="popup-tags"></span></p>
+                <p><strong>Source:</strong> <a id="popup-source" href="#" target="_blank">GitHub</a></p>
+                <p><strong>Demo:</strong> <a id="popup-demo" href="#" target="_blank">Live Demo</a></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // ======= JavaScript =======
+        const projectItems = document.querySelectorAll('.project-item');
+        const popup = document.getElementById('popup');
+        const popupClose = document.getElementById('popup-close');
+
+        const popupTitle = document.getElementById('popup-title');
+        const popupImg = document.getElementById('popup-img');
+        const popupDesc = document.getElementById('popup-desc');
+        const popupCreated = document.getElementById('popup-created');
+        const popupRole = document.getElementById('popup-role');
+        const popupFrontend = document.getElementById('popup-frontend');
+        const popupBackend = document.getElementById('popup-backend');
+        const popupTags = document.getElementById('popup-tags');
+        const popupSource = document.getElementById('popup-source');
+        const popupDemo = document.getElementById('popup-demo');
+
+        // Open popup
+        projectItems.forEach(item => {
+            item.addEventListener('click', () => {
+                popupTitle.textContent = item.dataset.title;
+                popupImg.src = item.dataset.image;
+                popupDesc.textContent = item.dataset.desc;
+                popupCreated.textContent = item.dataset.created;
+                popupRole.textContent = item.dataset.role;
+                popupFrontend.textContent = item.dataset.frontend;
+                popupBackend.textContent = item.dataset.backend;
+                popupTags.textContent = item.dataset.tags;
+                popupSource.href = item.dataset.source;
+                popupDemo.href = item.dataset.demo;
+
+                popup.classList.add('active');
+            });
+        });
+
+        // Close popup
+        popupClose.addEventListener('click', () => {
+            popup.classList.remove('active');
+        });
+
+        // Close when clicking outside content
+        popup.addEventListener('click', (e) => {
+            if (e.target === popup) {
+                popup.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>
