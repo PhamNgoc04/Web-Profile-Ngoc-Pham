@@ -1634,7 +1634,7 @@ body::-webkit-scrollbar-thumb:hover {
 }
 
 .info-grid > * {
-    padding-left: 30px; /* 👈 Nội dung bên trong gần sát trái */
+    padding-left: 0px; /* 👈 Nội dung bên trong gần sát trái */
 }
 
 
