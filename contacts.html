@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Me - Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+
+    <div class="container">
+        <header class="contact-header">
+            <h1>GET IN <span class="highlight">TOUCH</span></h1>
+        </header>
+
+        <main class="contact-content">
+            <div class="contact-info">
+                <h2>DON'T BE SHY</h2>
+                <p>
+                    Thank you for reading to the end. I hope that you have learned a little about me through this site. If you have any comments about this site or me, please use the form.
+                </p>
+
+                <div class="info-item">
+                    <i class="fas fa-map-marker-alt highlight"></i>
+                    <div>
+                        <h4>ADDRESS</h4>
+                        <p>Ha Noi</p>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <i class="fas fa-envelope highlight"></i>
+                    <div>
+                        <h4>EMAIL</h4>
+                        <p>ductt1531@gmail.com</p>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <i class="fas fa-phone-alt highlight"></i>
+                    <div>
+                        <h4>PHONE</h4>
+                        <p>0356581703</p>
+                    </div>
+                </div>
+                
+                <div class="social-icons">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+
+            <form class="contact-form" id="main-contact-form">
+                <div class="form-row">
+                    <input type="text" name="name" placeholder="NAME" required>
+                    <input type="email" name="email" placeholder="EMAIL" required>
+                </div>
+                <div class="form-row">
+                    <input type="text" name="subject" placeholder="SUBJECT" required>
+                </div>
+                <div class="form-row">
+                    <textarea name="message" placeholder="YOUR MESSAGE" required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">
+                    <span class="btn-text">SEND MESSAGE</span>
+                    <span class="btn-icon"><i class="fas fa-paper-plane"></i></span>
+                </button>
+            </form>
+        </main>
+    </div>
+
+        <!-- RIGHT NAVIGATION -->
+        <nav class="right-nav">
+            <div class="theme-toggle" id="theme-toggle" data-tooltip="Đổi giao diện">
+                <i class="fas fa-lightbulb"></i>
+            </div>
+            <ul>
+                <li><a href="trangchu.html" class="nav-link active" data-tooltip="Home"><i class="fas fa-home"></i></a></li>
+                <li><a href="about.html" class="nav-link" data-tooltip="About"><i class="fas fa-user"></i></a></li>
+                <li><a href="projects.html" class="nav-link" data-tooltip="Projects"><i class="fas fa-briefcase"></i></a></li>
+                <li><a href="contacts.html" class="nav-link" data-tooltip="Contact"><i class="fas fa-envelope"></i></a></li>
+            </ul>
+        </nav>
+
+    <script src="script.js"></script>
+</body>
+</html>

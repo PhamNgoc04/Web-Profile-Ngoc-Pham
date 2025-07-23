@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Projects - Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>MY <span class="highlight">PROJECTS</span></h1>
+        </header>
+
+        <nav class="filter-nav">
+            <button class="filter-btn active" data-filter="all">ALL</button>
+            <button class="filter-btn" data-filter="html-css-js">HTML/CSS/JAVASCRIPT</button>
+            <button class="filter-btn" data-filter="thymeleaf">THYMELEAF</button>
+            <button class="filter-btn" data-filter="nextjs">NEXTJS/REACTJS/TAILWIND</button>
+            <button class="filter-btn" data-filter="api">API</button>
+        </nav>
+
+        <main class="project-grid">
+            <div class="project-item" data-category="html-css-js">
+                <img src="img_profile.jpg" alt="Food Order App">
+            </div>
+            <div class="project-item" data-category="nextjs">
+                <img src="img_profile.jpg" alt="Portfolio Website">
+            </div>
+            <div class="project-item" data-category="thymeleaf">
+                <img src="img_profile.jpg" alt="E-commerce">
+            </div>
+             <div class="project-item" data-category="api">
+                <img src="img_profile.jpg" alt="API Project">
+            </div>
+             <div class="project-item" data-category="html-css-js">
+                <img src="img_profile.jpg" alt="Landing Page">
+            </div>
+             <div class="project-item" data-category="nextjs">
+                <img src="img_profile.jpg" alt="React App">
+            </div>
+        </main>
+    </div>
+
+        <!-- RIGHT NAVIGATION -->
+        <nav class="right-nav">
+            <div class="theme-toggle" id="theme-toggle" data-tooltip="Đổi giao diện">
+                <i class="fas fa-lightbulb"></i>
+            </div>
+            <ul>
+                <li><a href="trangchu.html" class="nav-link active" data-tooltip="Home"><i class="fas fa-home"></i></a></li>
+                <li><a href="about.html" class="nav-link" data-tooltip="About"><i class="fas fa-user"></i></a></li>
+                <li><a href="projects.html" class="nav-link" data-tooltip="Projects"><i class="fas fa-briefcase"></i></a></li>
+                <li><a href="contacts.html" class="nav-link" data-tooltip="Contact"><i class="fas fa-envelope"></i></a></li>
+            </ul>
+        </nav>
+
+    <script src="script.js"></script>
+</body>
+</html>

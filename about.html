@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Me - Tran Trong Duc</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+</head>
+<body class="dark-theme">
+    <main class="about-container">
+        <h1><span class="line"></span> ABOUT <span style="color: var(--color-primary)">ME</span></h1>
+        
+        <!-- Personal Information -->
+        <section class="personal-info">
+            <h2>Personal Information</h2>
+            <div class="info-grid">
+                <p><strong>First Name:</strong> Ngoc</p>
+                <p><strong>Last Name:</strong> Pham Bic</p>
+                <p><strong>Birthday:</strong> 23/04/2004</p>
+                <p><strong>Sex:</strong> Male</p>
+                <p><strong>Nation:</strong> Viet Nam</p>
+                <p><strong>Address:</strong> Tien Lu, Hung Yen</p>
+                <p><strong>Phone:</strong> 08888888888</p>
+                <p><strong>Git:</strong> <a href="https://github.com/NgocPB04" target="_blank">github.com</a></p>
+                <p><strong>Email:</strong> ngocpb04@gmail.com</p>
+                <p><strong>Languages:</strong> Vietnamese, English</p>
+            </div>
+            <button class="btn download-btn">
+                <span class="btn-icon"><i class="fas fa-download"></i></span>
+                <span class="btn-text">Download CV</span>
+            </button>
+        </section>
+
+        <!-- My Skills -->
+        <section class="skills">
+            <h2>My Skills</h2>
+            <div class="skills-grid">
+                <div><i class="fab fa-react"></i><span>React</span></div>
+                <div><i class="fab fa-css3-alt"></i><span>CSS</span></div>
+                <div><i class="fas fa-wind"></i><span>Tailwind</span></div>
+                <div><i class="fas fa-leaf"></i><span>Spring</span></div>
+                <div><i class="fas fa-database"></i><span>MySQL</span></div>
+                <div><i class="fab fa-js-square"></i><span>JavaScript</span></div>
+                <div><i class="fab fa-java"></i><span>Java</span></div>
+                <div><i class="fas fa-code"></i><span>Axios</span></div>
+            </div>
+        </section>
+
+        <!-- Education -->
+        <section class="education">
+            <h2>Education & Experience</h2>
+            <div class="education-grid">
+                <div>
+                    <span class="year">2018</span>
+                    <p><strong>Thuong Mai University</strong> – Graduated</p>
+                </div>
+                <div>
+                    <span class="year">2024</span>
+                    <p><strong>Rikkei Academy</strong> – Graduated</p>
+                </div>
+                <div>
+                    <span class="year">2025</span>
+                    <p><strong>VMO Holdings Technology</strong> – Golang Developer Intern</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <nav class="right-nav">
+        <div class="theme-toggle" id="theme-toggle">
+            <i class="fas fa-lightbulb"></i>
+        </div>
+        <ul>
+            <li><a href="trangchu.html" class="nav-link" data-tooltip="Home"><i class="fas fa-home"></i></a></li>
+            <li><a href="about.html" class="nav-link active" data-tooltip="About"><i class="fas fa-user"></i></a></li>
+            <li><a href="projects.html" class="nav-link" data-tooltip="Projects"><i class="fas fa-briefcase"></i></a></li>
+            <li><a href="contact.html" class="nav-link" data-tooltip="Contact"><i class="fas fa-envelope"></i></a></li>
+        </ul>
+    </nav>
+
+    <script src="script.js"></script>
+</body>
+</html>
