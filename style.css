@@ -1104,7 +1104,25 @@ header .highlight {
 }
 
 
-/*=============================================================*/
+Chắc chắn rồi! Để tối ưu hóa cho điện thoại, chúng ta cần tinh chỉnh lại kích thước chữ, khoảng cách, và bố cục của một số thành phần để chúng hiển thị tốt hơn trên màn hình nhỏ.
+
+Dưới đây là toàn bộ code CSS của bạn, với phần RESPONSIVE DESIGN ở cuối đã được sửa đổi và bổ sung để cải thiện trải nghiệm trên di động. Các thay đổi chính bao gồm:
+
+Giảm kích thước font chữ (h1, h2) để không chiếm quá nhiều diện tích.
+
+Giảm padding (khoảng cách lề bên trong) của các khối nội dung chính.
+
+Điều chỉnh kích thước ảnh ở trang chủ cho phù hợp hơn.
+
+Tinh chỉnh lại bố cục của lưới kỹ năng và dự án để vừa vặn hơn.
+
+Đảm bảo thanh điều hướng dưới cùng (main-nav) không bị các yếu tố khác che mất.
+
+Bạn chỉ cần sao chép và thay thế toàn bộ file style.css hiện tại của bạn bằng code dưới đây.
+
+Code CSS Tối ưu cho Điện thoại
+CSS
+
 /* ========== 1. GOOGLE FONTS & GLOBAL VARIABLES ========== */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 
@@ -1208,7 +1226,7 @@ body::-webkit-scrollbar-thumb:hover { background: var(--color-primary-darker); }
     flex-direction: column;
     align-items: center;
     gap: 15px;
-    z-index: 100;
+    z-index: 1000;
 }
 
 .nav-control {
@@ -1259,6 +1277,7 @@ body::-webkit-scrollbar-thumb:hover { background: var(--color-primary-darker); }
     align-items: center;
     justify-content: center;
     min-height: 100vh;
+    padding: 2rem 0; /* Thêm padding để không bị dính sát mép trên mobile */
 }
 .main-container {
     display: flex;
@@ -1346,8 +1365,7 @@ body::-webkit-scrollbar-thumb:hover { background: var(--color-primary-darker); }
     padding: 40px;
     box-shadow: 0 10px 30px var(--shadow-color);
 }
-
-.skills h2, .education h2 { text-align: center; margin-bottom: 2rem; }
+.personal-info h2, .skills h2, .education h2 { text-align: center; margin-bottom: 2rem; }
 .info-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -1519,20 +1537,46 @@ body::-webkit-scrollbar-thumb:hover { background: var(--color-primary-darker); }
 .project-popup-info a { color: var(--color-primary); text-decoration: none; }
 .project-popup-info a:hover { text-decoration: underline; }
 
-/* ========== 10. RESPONSIVE DESIGN ========== */
+/* ========== 10. RESPONSIVE DESIGN (TỐI ƯU HÓA) ========== */
+
+/* --- CHO MÁY TÍNH BẢNG --- */
 @media (max-width: 992px) {
-    h1 { font-size: 2.5rem; }
-    h2 { font-size: 1.8rem; }
-    .main-container { flex-direction: column; width: 100%; max-width: 500px; }
-    .left-panel { clip-path: none; border-radius: 20px 20px 0 0; padding: 2rem 0; }
-    .content-panel { border-radius: 0 0 20px 20px; }
-    .contact-content { flex-direction: column; }
-    .project-popup-grid { grid-template-columns: 1fr; }
-    .project-popup-img { max-height: 300px; border-radius: 12px 12px 0 0; }
+    .main-container {
+        flex-direction: column;
+        width: 100%;
+        max-width: 500px;
+    }
+    .left-panel {
+        clip-path: none;
+        border-radius: 20px 20px 0 0;
+        padding: 2rem 0;
+    }
+    .content-panel {
+        border-radius: 0 0 20px 20px;
+    }
+    .contact-content {
+        flex-direction: column;
+    }
+    .project-popup-grid {
+        grid-template-columns: 1fr;
+    }
+    .project-popup-img {
+        max-height: 300px;
+        border-radius: 12px 12px 0 0;
+    }
 }
 
+/* --- CHO ĐIỆN THOẠI (PHẦN QUAN TRỌNG NHẤT) --- */
 @media (max-width: 768px) {
-    .container { padding: 2rem 0; }
+    /* Cỡ chữ và khoảng cách chung */
+    .container {
+        padding: 3rem 0;
+    }
+    h1 { font-size: 2.2rem; }
+    h2 { font-size: 1.6rem; }
+    p { font-size: 0.95rem; }
+
+    /* Điều hướng chính (thanh dưới cùng) */
     .main-nav {
         flex-direction: row;
         top: auto;
@@ -1546,23 +1590,60 @@ body::-webkit-scrollbar-thumb:hover { background: var(--color-primary-darker); }
         padding: 5px 0;
         border-radius: 0;
         box-shadow: 0 -5px 15px var(--shadow-color);
+        z-index: 1000; /* Đảm bảo luôn nổi lên trên */
     }
-    .nav-control { width: 45px; height: 45px; margin: 5px; }
-    .nav-control .tooltip { display: none; } /* Hide tooltip on mobile */
+    .nav-control {
+        width: 45px;
+        height: 45px;
+        margin: 5px;
+    }
+    .nav-control .tooltip {
+        display: none; /* Ẩn tooltip trên di động */
+    }
 
-    .form-row { flex-direction: column; gap: 0; }
-    .form-row input { margin-bottom: 1.5rem; }
+    /* Trang Chủ */
+    .content-panel {
+        padding: 30px 25px; /* Giảm padding */
+    }
+    .image-container {
+        width: 250px; /* Giảm kích thước ảnh */
+        height: 350px;
+    }
 
-    .contact-header::before { font-size: 4rem; }
+    /* Trang Giới Thiệu */
+    .about-section {
+        padding: 30px 20px; /* Giảm padding */
+    }
+    .skills-grid {
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* Cho item nhỏ hơn */
+        gap: 1rem;
+    }
+    
+    /* Trang Dự Án */
+    .project-grid {
+        grid-template-columns: 1fr; /* Mỗi hàng 1 dự án */
+        gap: 1rem;
+    }
+
+    /* Trang Liên Hệ */
+    .contact-header::before {
+        font-size: 3.5rem; /* Giảm cỡ chữ nền */
+    }
+    .form-row {
+        flex-direction: column;
+        gap: 0;
+        margin-bottom: 0;
+    }
+    .form-row input {
+        margin-bottom: 1rem; /* Tạo khoảng cách giữa các input xếp dọc */
+    }
+
+    /* Popups */
+    .popup .close-popup-btn {
+        top: 10px;
+        right: 10px;
+    }
+    .project-popup-details {
+        padding: 20px;
+    }
 }
-
-
-
-
-
-
-
-
-
-
-
