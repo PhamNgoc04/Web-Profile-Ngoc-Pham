@@ -1625,13 +1625,22 @@ body::-webkit-scrollbar-thumb:hover {
 .about-section h2 {
     margin-bottom: 1.5rem;
 }
-
+/* 
 .info-grid {
     text-align: left;
     grid-template-columns: 1fr;
     gap: 1.2rem;
     padding-left: 0; /* Xóa padding tổng thể nếu có */
+} */
+
+.info-grid {
+    text-align: center;              /* 👈 Căn giữa nội dung văn bản */
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+    justify-items: center;          /* 👈 Căn giữa phần tử con theo chiều ngang */
+    padding-left: 0;
 }
+
 
 .info-grid > * {
     padding-left: 0px; /* 👈 Nội dung bên trong gần sát trái */
