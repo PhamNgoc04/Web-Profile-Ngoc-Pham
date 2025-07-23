@@ -1125,7 +1125,7 @@ header .highlight {
     --shadow-color: rgba(0, 0, 0, 0.3);
 
     --transition-speed: 0.4s ease;
-}
+} */
 
 body.light-theme {
     --bg-color: var(--color-light-bg);

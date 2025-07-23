@@ -18,9 +18,11 @@
             background-color: #f9bf3f;
             color: #000;
         }
+
+        
     </style>
 </head>
-<body>
+<body class="dark-theme">
 
     <div class="container">
         <header>
@@ -33,7 +35,7 @@
             <button class="filter-btn" data-filter="html-css-js">Kotlin</button>
             <button class="filter-btn" data-filter="thymeleaf">MySQL</button>
             <button class="filter-btn" data-filter="nextjs">Jetpack Compose</button>
-            <button class="filter-btn" data-filter="api">Ktor</button>
+            <button class="filter-btn" data-filter="ktor">Ktor</button>
         </nav>
 
         <!-- Projects Grid -->
@@ -164,15 +166,17 @@
             }
         });
 
-        const themeToggle = document.querySelector('.theme-toggle');
+        // const themeToggle = document.querySelector('.theme-toggle');
 
-        themeToggle.addEventListener('click', () => {
-            document.body.classList.toggle('light-theme');
-        });
+        // themeToggle.addEventListener('click', () => {
+        //     document.body.classList.toggle('light-theme');
+        // });
 
 
 
     </script>
+
+    <script src="script.js"></script>
 
     
 
