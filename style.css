@@ -1629,6 +1629,7 @@ body::-webkit-scrollbar-thumb:hover {
         text-align: left;
         grid-template-columns: 1fr; /* Hiển thị 1 cột cho dễ đọc */
         gap: 1.2rem;
+        padding-left: 30px;
     }
 
     .skills-grid {
