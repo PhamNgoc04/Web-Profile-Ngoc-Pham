@@ -6,6 +6,19 @@
     <title>My Projects - Portfolio</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <style>
+        .project-item {
+            display: block; /* Mặc định hiện */
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+        .project-item.hide {
+            display: none; /* Ẩn project không cùng category */
+        }
+        .filter-btn.active {
+            background-color: #f9bf3f;
+            color: #000;
+        }
+    </style>
 </head>
 <body>
 
@@ -14,14 +27,16 @@
             <h1>MY <span class="highlight">PROJECTS</span></h1>
         </header>
 
+        <!-- Filter buttons -->
         <nav class="filter-nav">
             <button class="filter-btn active" data-filter="all">ALL</button>
-            <button class="filter-btn" data-filter="html-css-js">HTML/CSS/JAVASCRIPT</button>
-            <button class="filter-btn" data-filter="thymeleaf">THYMELEAF</button>
-            <button class="filter-btn" data-filter="nextjs">NEXTJS/REACTJS/TAILWIND</button>
-            <button class="filter-btn" data-filter="api">API</button>
+            <button class="filter-btn" data-filter="html-css-js">Kotlin</button>
+            <button class="filter-btn" data-filter="thymeleaf">MySQL</button>
+            <button class="filter-btn" data-filter="nextjs">Jetpack Compose</button>
+            <button class="filter-btn" data-filter="api">Ktor</button>
         </nav>
 
+        <!-- Projects Grid -->
         <main class="project-grid">
             <div class="project-item" data-category="html-css-js">
                 <img src="img_profile.jpg" alt="Food Order App">
@@ -32,31 +47,135 @@
             <div class="project-item" data-category="thymeleaf">
                 <img src="img_profile.jpg" alt="E-commerce">
             </div>
-             <div class="project-item" data-category="api">
+            <div class="project-item" data-category="api">
                 <img src="img_profile.jpg" alt="API Project">
             </div>
-             <div class="project-item" data-category="html-css-js">
+            <div class="project-item" data-category="html-css-js">
                 <img src="img_profile.jpg" alt="Landing Page">
             </div>
-             <div class="project-item" data-category="nextjs">
+            <div class="project-item" data-category="nextjs">
                 <img src="img_profile.jpg" alt="React App">
             </div>
         </main>
+
+        <!-- POPUP CHI TIẾT DỰ ÁN -->
+        <div class="project-popup" id="projectPopup">
+            <div class="popup-content">
+                <button class="close-btn" id="closePopup">&times;</button>
+                <div class="popup-grid">
+                    <!-- Left: Image -->
+                    <div class="popup-image">
+                        <img src="img_profile.jpg" alt="Project Image" id="popupImage">
+                    </div>
+                    <!-- Right: Details -->
+                    <div class="popup-details">
+                        <h2 id="popupTitle" class="popup-title">MYFOODIE</h2>
+                        <p id="popupDescription" class="popup-description">
+                            This is my first project using HTML, CSS, JavaScript. It’s a clone of Lotteria fast food restaurant website.
+                        </p>
+                        <ul class="popup-info">
+                            <li><strong>📅 Created:</strong> <span id="popupDate">01/01/2024</span></li>
+                            <li><strong>👨‍💻 Role:</strong> <span id="popupRole">Main Developer</span></li>
+                            <li><strong>🎨 Frontend:</strong> <span id="popupFrontend">HTML, CSS, JavaScript</span></li>
+                            <li><strong>🗄️ Backend:</strong> <span id="popupBackend">None</span></li>
+                            <li><strong>🏷️ Tags:</strong> <span id="popupTags">html / css / javascript / food</span></li>
+                            <li><strong>🔗 Source:</strong> <a href="#" id="popupSource" target="_blank">View on GitHub</a></li>
+                            <li><strong>🚀 Demo:</strong> <a href="#" id="popupDemo" target="_blank">Live Demo</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
 
-        <!-- RIGHT NAVIGATION -->
-        <nav class="right-nav">
-            <div class="theme-toggle" id="theme-toggle" data-tooltip="Đổi giao diện">
-                <i class="fas fa-lightbulb"></i>
-            </div>
-            <ul>
-                <li><a href="index.html" class="nav-link active" data-tooltip="Home"><i class="fas fa-home"></i></a></li>
-                <li><a href="about.html" class="nav-link" data-tooltip="About"><i class="fas fa-user"></i></a></li>
-                <li><a href="projects.html" class="nav-link" data-tooltip="Projects"><i class="fas fa-briefcase"></i></a></li>
-                <li><a href="contacts.html" class="nav-link" data-tooltip="Contact"><i class="fas fa-envelope"></i></a></li>
-            </ul>
-        </nav>
+    <!-- RIGHT NAVIGATION -->
+    <nav class="right-nav">
+        <div class="theme-toggle" id="theme-toggle" data-tooltip="Đổi giao diện">
+            <i class="fas fa-lightbulb"></i>
+        </div>
+        <ul>
+            <li><a href="index.html" class="nav-link" data-tooltip="Home"><i class="fas fa-home"></i></a></li>
+            <li><a href="about.html" class="nav-link" data-tooltip="About"><i class="fas fa-user"></i></a></li>
+            <li><a href="projects.html" class="nav-link active" data-tooltip="Projects"><i class="fas fa-briefcase"></i></a></li>
+            <li><a href="contacts.html" class="nav-link" data-tooltip="Contact"><i class="fas fa-envelope"></i></a></li>
+        </ul>
+    </nav>
 
-    <script src="script.js"></script>
+    <script>
+        // Filter buttons
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const projectItems = document.querySelectorAll('.project-item');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active'); // Add active to clicked btn
+
+                const filter = btn.getAttribute('data-filter');
+                projectItems.forEach(item => {
+                    if (filter === 'all' || item.dataset.category === filter) {
+                        item.classList.remove('hide');
+                    } else {
+                        item.classList.add('hide');
+                    }
+                });
+            });
+        });
+
+
+        // const projectItems = document.querySelectorAll('.project-item');
+        const popup = document.getElementById('projectPopup');
+        const closePopup = document.getElementById('closePopup');
+
+        // Show popup
+        projectItems.forEach(item => {
+            item.addEventListener('click', () => {
+                // Lấy thông tin từ project
+                const imgSrc = item.querySelector('img').src;
+                const title = item.querySelector('img').alt;
+
+                // Cập nhật nội dung popup
+                document.getElementById('popupImage').src = imgSrc;
+                document.getElementById('popupTitle').textContent = title;
+                document.getElementById('popupDescription').textContent = "This is a sample description for " + title;
+                document.getElementById('popupDate').textContent = "01/01/2024";
+                document.getElementById('popupRole').textContent = "Main Developer";
+                document.getElementById('popupFrontend').textContent = "HTML, CSS, JavaScript";
+                document.getElementById('popupBackend').textContent = "None";
+                document.getElementById('popupTags').textContent = "html / css / javascript";
+                document.getElementById('popupSource').href = "#";
+                document.getElementById('popupDemo').href = "#";
+
+                popup.classList.add('active');
+            });
+        });
+
+        // Close popup
+        closePopup.addEventListener('click', () => {
+            popup.classList.remove('active');
+        });
+
+        // Close when clicking outside
+        popup.addEventListener('click', (e) => {
+            if (e.target === popup) {
+                popup.classList.remove('active');
+            }
+        });
+
+        const themeToggle = document.querySelector('.theme-toggle');
+
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('light-theme');
+        });
+
+
+
+    </script>
+
+    
+
+
 </body>
 </html>

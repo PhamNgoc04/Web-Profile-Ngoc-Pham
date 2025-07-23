@@ -23,9 +23,15 @@ body.light-theme {
     --secondary-bg-color: var(--color-light-gray);
 }
 
+body.index-page {
+    min-height: 101vh; /* ép trang Home dài gấp đôi màn hình */
+}
+
+
+
 /* --- RESET --- */
 * {
-    margin: 0;
+    margin: 0;  
     padding: 0;
     box-sizing: border-box;
 }
@@ -157,6 +163,7 @@ body {
     border-radius: 25px;
     overflow: hidden;
     box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
 }
 
 .image-container img {
@@ -186,13 +193,6 @@ body {
     justify-content: center;
 }
 
-.content-panel h1 {
-    font-size: 3rem;
-    font-weight: 700;
-    margin-bottom: 10px;
-    display: flex;
-    align-items: center;
-}
 
 .content-panel .line {
     display: inline-block;
@@ -203,10 +203,22 @@ body {
     border-radius: 5px;
 }
 
+.content-panel h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    color: var(--text-color); /* ✅ Thêm dòng này */
+    transition: color 0.4s ease; /* Mượt khi đổi theme */
+}
+
 .content-panel h2 {
     font-size: 1.8rem;
     margin-bottom: 20px;
     font-weight: 500;
+    color: var(--text-color); /* ✅ Thêm dòng này */
+    transition: color 0.4s ease;
 }
 
 .content-panel p {
@@ -357,7 +369,7 @@ body {
 
 /* Popup Lightbox */
 .lightbox {
-    display: none;
+    display: none; /* Ẩn mặc định */
     position: fixed;
     top: 0; left: 0;
     width: 100vw;
@@ -389,12 +401,11 @@ body {
     color: var(--color-primary);
 }
 
-
 /* --- ABOUT PAGE STYLE --- */
 .about-container {
     width: 90%;
     max-width: 1200px;
-    margin: 60px auto;
+    margin: 10px auto;
     padding: 40px;
     background: var(--secondary-bg-color);
     border-radius: 20px;
@@ -431,8 +442,10 @@ body {
 
 .info-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 15px;
+    padding-left: 60px;
+    padding-bottom: 20px;
 }
 
 .info-grid p {
@@ -575,7 +588,6 @@ body {
 
 
 /*CSS cho Projects*/
-/*CSS cho Projects*/
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap');
 
 :root {
@@ -585,6 +597,11 @@ body {
     --highlight-color: #FFD700; /* Gold */
     --card-bg-color: #1e1e1e;
 }
+
+.project-item.hidden {
+    display: none;
+}
+
 
 * {
     margin: 0;
@@ -602,6 +619,7 @@ body {
 .container {
     max-width: 1200px;
     margin: 0 auto;
+    padding-top: 40px;
 }
 
 header {
@@ -613,10 +631,16 @@ header h1 {
     font-size: 3rem;
     font-weight: 900;
     letter-spacing: 2px;
+    color: var(--text-color); /* ✅ fix đổi màu theo theme */
+    transition: color 0.4s ease; /* mượt khi đổi theme */
 }
 
 .highlight {
     color: var(--highlight-color);
+}
+
+header .highlight {
+    color: var(--highlight-color); /* giữ highlight vàng */
 }
 
 .filter-nav {
@@ -776,6 +800,9 @@ header h1 {
 .contact-info h2 {
     font-size: 1.8rem;
     margin-bottom: 1rem;
+    color: var(--text-color); /* ✅ fix đổi màu theo theme */
+    transition: color 0.4s ease; /* mượt khi đổi theme */
+
 }
 
 .contact-info p {
@@ -793,6 +820,8 @@ header h1 {
 
 .info-item .fas {
     font-size: 1.5rem;
+        color: var(--text-color); /* ✅ fix đổi màu theo theme */
+    transition: color 0.4s ease; /* mượt khi đổi theme */
 }
 
 .info-item h4 {
@@ -805,6 +834,8 @@ header h1 {
     margin-bottom: 0;
     color: var(--primary-text-color);
     font-weight: bold;
+        color: var(--text-color); /* ✅ fix đổi màu theo theme */
+    transition: color 0.4s ease; /* mượt khi đổi theme */
 }
 
 .social-icons {
@@ -879,6 +910,8 @@ header h1 {
     font-weight: bold;
     overflow: hidden; /* Quan trọng cho hiệu ứng hover */
     transition: color 0.4s ease-in-out;
+        color: var(--text-color); /* ✅ fix đổi màu theo theme */
+    transition: color 0.4s ease; /* mượt khi đổi theme */
 }
 
 .submit-btn:hover {
@@ -909,5 +942,162 @@ header h1 {
     }
     .contact-header::before {
         font-size: 4rem;
+    }
+}
+
+.scroll-container {
+    overflow-y: auto; /* Đảm bảo container có thể cuộn */
+    height: 100vh; /* Chiều cao để thử scroll */
+}
+
+/* Custom scrollbar cho Chrome, Edge, Safari */
+.scroll-container::-webkit-scrollbar {
+    width: 8px; /* Độ rộng scrollbar */
+}
+
+.scroll-container::-webkit-scrollbar-track {
+    background: #f0f0f0; /* Màu nền track (phần rãnh) */
+    border-radius: 10px;
+}
+
+.scroll-container::-webkit-scrollbar-thumb {
+    background-color: #f9bf3f; /* 🎨 Màu vàng bạn muốn */
+    border-radius: 10px;
+    border: 2px solid #f0f0f0; /* Viền quanh thumb */
+}
+
+/* Firefox */
+.scroll-container {
+    scrollbar-width: thin; /* Làm scrollbar nhỏ */
+    scrollbar-color: #f9bf3f #f0f0f0; /* thumb màu vàng - track màu xám */
+}
+
+/*Popup Projects*/
+/* Popup container */
+.project-popup {
+    display: none; /* hidden by default */
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(3px);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.project-popup.active {
+    display: flex;
+}
+
+/* Popup box */
+.popup-content {
+    background: #1e1e1e;
+    color: #fff;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 900px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+    position: relative;
+    overflow: hidden;
+    animation: slideUp 0.4s ease;
+}
+
+/* Close button */
+.close-btn {
+    position: absolute;
+    top: 12px;
+    right: 16px;
+    background: none; /* ❌ Không có background */
+    color: var(--text-color); /* đổi màu theo theme */
+    border: none;
+    font-size: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 5px 10px;
+    border-radius: 50%;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.close-btn:hover {
+    transform: rotate(90deg);
+    color: var(--color-primary); /* Khi hover đổi sang màu chính */
+}
+
+/* Grid layout for popup content */
+.popup-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+/* Left: Image */
+.popup-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px 0 0 10px;
+    object-fit: cover;
+}
+
+/* Right: Details */
+.popup-details {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.popup-title {
+    color: #f9bf3f;
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.popup-description {
+    font-size: 15px;
+    margin-bottom: 15px;
+    color: #ddd;
+    line-height: 1.6;
+}
+
+.popup-info {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.popup-info li {
+    margin: 6px 0;
+    font-size: 14px;
+}
+
+.popup-info a {
+    color: #f9bf3f;
+    text-decoration: none;
+}
+
+.popup-info a:hover {
+    text-decoration: underline;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .popup-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .popup-image img {
+        border-radius: 10px 10px 0 0;
     }
 }

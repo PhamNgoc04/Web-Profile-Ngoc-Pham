@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
             this.initPageTransitions();
             this.initProfileLightbox();
             this.initContactForm();
-            this.initProjectFilter(); // ✅ Lọc project
+            this.initProjectFilter(); 
         },
 
         initThemeToggle() {
@@ -85,28 +85,30 @@ document.addEventListener('DOMContentLoaded', () => {
         },
 
         initProfileLightbox() {
-            const profileImage = document.getElementById('profile-image');
-            profileImage.addEventListener('click', openLightbox);
+            const profileImage = document.getElementById("profile-image");
+            const lightbox = document.getElementById("lightbox");
+            const closeBtn = document.querySelector(".close-btn");
 
-            const lightbox = document.getElementById('lightbox');
-            if (!profileImage || !lightbox) return;
-            
-            const closeBtn = lightbox.querySelector('.close-btn');
-
-            const openLightbox = () => lightbox.classList.add('visible');
-            const closeLightbox = () => lightbox.classList.remove('visible');
-
-            profileImage.addEventListener('click', openLightbox);
-            closeBtn.addEventListener('click', closeLightbox);
-            lightbox.addEventListener('click', (e) => {
-                if (e.target === lightbox) closeLightbox();
+            // Mở popup khi click ảnh
+            profileImage.addEventListener("click", () => {
+                lightbox.style.display = "flex";
             });
-            document.addEventListener('keydown', (e) => {
-                if (e.key === 'Escape' && lightbox.classList.contains('visible')) {
-                    closeLightbox();
+
+            // Đóng popup khi click nút close
+            closeBtn.addEventListener("click", () => {
+                lightbox.style.display = "none";
+            });
+
+            // Đóng popup khi click bên ngoài ảnh
+            lightbox.addEventListener("click", (e) => {
+                if (e.target === lightbox) {
+                    lightbox.style.display = "none";
                 }
             });
+
+
         },
+
 
         initContactForm() {
             const contactForm = document.getElementById('main-contact-form');
@@ -132,28 +134,29 @@ document.addEventListener('DOMContentLoaded', () => {
         },
 
         initProjectFilter() {
-            const filterContainer = document.querySelector('.filter-nav');
-            if (!filterContainer) return;
+            // const filterContainer = document.querySelector('.filter-nav');
+            // if (!filterContainer) return;
 
-            const filterButtons = filterContainer.querySelectorAll('.filter-btn');
-            const projectItems = document.querySelectorAll('.project-item');
+            // const filterButtons = filterContainer.querySelectorAll('.filter-btn');
+            // const projectItems = document.querySelectorAll('.project-item');
 
-            filterButtons.forEach(button => {
-                button.addEventListener('click', () => {
-                    filterContainer.querySelector('.active').classList.remove('active');
-                    button.classList.add('active');
+            // filterButtons.forEach(button => {
+            //     button.addEventListener('click', () => {
+            //         filterContainer.querySelector('.active').classList.remove('active');
+            //         button.classList.add('active');
 
-                    const filter = button.dataset.filter;
-                    projectItems.forEach(item => {
-                        if (filter === 'all' || item.dataset.category === filter) {
-                            item.classList.remove('hidden');
-                        } else {
-                            item.classList.add('hidden');
-                        }
-                    });
-                });
-            });
+            //         const filter = button.dataset.filter;
+            //         projectItems.forEach(item => {
+            //             if (filter === 'all' || item.dataset.category === filter) {
+            //                 item.classList.remove('hidden');
+            //             } else {
+            //                 item.classList.add('hidden');
+            //             }
+            //         });
+            //     });
+            // });
         },
+
 
         showToast(message) {
             const oldToast = document.querySelector('.toast-notification');
@@ -169,7 +172,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 toast.classList.remove('visible');
                 toast.addEventListener('transitionend', () => toast.remove(), { once: true });
             }, 5000);
-        }
+        },
+
     };
 
     App.init();
