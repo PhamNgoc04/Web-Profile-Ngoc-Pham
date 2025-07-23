@@ -403,7 +403,7 @@ body {
 
 /* --- ABOUT PAGE STYLE --- */
 .about-container {
-    width: 90%;
+    width: 100%;
     max-width: 1200px;
     margin: 10px auto;
     padding: 40px;
