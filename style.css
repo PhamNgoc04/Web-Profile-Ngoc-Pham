@@ -403,8 +403,8 @@ body {
 
 /* --- ABOUT PAGE STYLE --- */
 .about-container {
-    width: 100%;
-    max-width: 1200px;
+    width: 93%;
+    max-width: 1500px;
     margin: 10px auto;
     padding: 40px;
     background: var(--secondary-bg-color);
@@ -1629,7 +1629,7 @@ body::-webkit-scrollbar-thumb:hover {
         text-align: left;
         grid-template-columns: 1fr; /* Hiển thị 1 cột cho dễ đọc */
         gap: 1.2rem;
-        padding-left: -5px;
+        padding-left: -10px;
     }
 
     .skills-grid {
