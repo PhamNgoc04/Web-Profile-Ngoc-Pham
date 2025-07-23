@@ -1629,12 +1629,12 @@ body::-webkit-scrollbar-thumb:hover {
         text-align: left;
         grid-template-columns: 1fr; /* Hiển thị 1 cột cho dễ đọc */
         gap: 1.2rem;
-        padding-left: 5px;
+        padding-left: 1px;
     }
 
     .skills-grid {
         grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
-        gap: 1rem;
+        gap: 1.2rem;
         justify-items: center; /* Căn giữa item */
     }
 
