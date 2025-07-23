@@ -1627,7 +1627,7 @@ body::-webkit-scrollbar-thumb:hover {
 
     .info-grid {
         width: 100%;
-        padding-left: 0;       /* bỏ padding trái nếu có */
+        padding-left: -5px;       /* bỏ padding trái nếu có */
         padding-right: 0;      /* tương tự bên phải */
         margin-left: 0;        /* đảm bảo không bị lệch trái */
         margin-right: 0;
