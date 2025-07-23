@@ -1104,25 +1104,7 @@ header .highlight {
 }
 
 
-Chắc chắn rồi! Để tối ưu hóa cho điện thoại, chúng ta cần tinh chỉnh lại kích thước chữ, khoảng cách, và bố cục của một số thành phần để chúng hiển thị tốt hơn trên màn hình nhỏ.
-
-Dưới đây là toàn bộ code CSS của bạn, với phần RESPONSIVE DESIGN ở cuối đã được sửa đổi và bổ sung để cải thiện trải nghiệm trên di động. Các thay đổi chính bao gồm:
-
-Giảm kích thước font chữ (h1, h2) để không chiếm quá nhiều diện tích.
-
-Giảm padding (khoảng cách lề bên trong) của các khối nội dung chính.
-
-Điều chỉnh kích thước ảnh ở trang chủ cho phù hợp hơn.
-
-Tinh chỉnh lại bố cục của lưới kỹ năng và dự án để vừa vặn hơn.
-
-Đảm bảo thanh điều hướng dưới cùng (main-nav) không bị các yếu tố khác che mất.
-
-Bạn chỉ cần sao chép và thay thế toàn bộ file style.css hiện tại của bạn bằng code dưới đây.
-
-Code CSS Tối ưu cho Điện thoại
-CSS
-
+/*=============================================================*/
 /* ========== 1. GOOGLE FONTS & GLOBAL VARIABLES ========== */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 
@@ -1322,6 +1304,10 @@ body::-webkit-scrollbar-thumb:hover { background: var(--color-primary-darker); }
     flex-direction: column;
     justify-content: center;
     transition: background var(--transition-speed);
+}
+.content-panel h1 {
+    display: flex; /* Giữ lại flex cho desktop */
+    align-items: center;
 }
 .buttons-container {
     display: flex;
@@ -1537,7 +1523,7 @@ body::-webkit-scrollbar-thumb:hover { background: var(--color-primary-darker); }
 .project-popup-info a { color: var(--color-primary); text-decoration: none; }
 .project-popup-info a:hover { text-decoration: underline; }
 
-/* ========== 10. RESPONSIVE DESIGN (TỐI ƯU HÓA) ========== */
+/* ========== 10. RESPONSIVE DESIGN (BẢN CẬP NHẬT HOÀN CHỈNH) ========== */
 
 /* --- CHO MÁY TÍNH BẢNG --- */
 @media (max-width: 992px) {
@@ -1566,7 +1552,7 @@ body::-webkit-scrollbar-thumb:hover { background: var(--color-primary-darker); }
     }
 }
 
-/* --- CHO ĐIỆN THOẠI (PHẦN QUAN TRỌNG NHẤT) --- */
+/* --- CHO ĐIỆN THOẠI (PHẦN TỐI ƯU CĂN CHỈNH) --- */
 @media (max-width: 768px) {
     /* Cỡ chữ và khoảng cách chung */
     .container {
@@ -1590,7 +1576,7 @@ body::-webkit-scrollbar-thumb:hover { background: var(--color-primary-darker); }
         padding: 5px 0;
         border-radius: 0;
         box-shadow: 0 -5px 15px var(--shadow-color);
-        z-index: 1000; /* Đảm bảo luôn nổi lên trên */
+        z-index: 1000;
     }
     .nav-control {
         width: 45px;
@@ -1598,36 +1584,51 @@ body::-webkit-scrollbar-thumb:hover { background: var(--color-primary-darker); }
         margin: 5px;
     }
     .nav-control .tooltip {
-        display: none; /* Ẩn tooltip trên di động */
+        display: none;
     }
 
-    /* Trang Chủ */
+    /* === SỬA LỖI CĂN CHỈNH TRANG HOME === */
     .content-panel {
-        padding: 30px 25px; /* Giảm padding */
+        padding: 40px 25px;
+        text-align: center; /* Căn giữa toàn bộ text */
+    }
+    .content-panel h1 {
+        display: block; /* Bỏ flex để căn giữa tiêu đề */
+    }
+    .content-panel .line {
+        margin: 0 auto 1rem auto; /* Căn giữa gạch và thêm khoảng cách dưới */
+        display: block;
+    }
+    .buttons-container {
+        justify-content: center; /* Căn giữa các nút */
     }
     .image-container {
-        width: 250px; /* Giảm kích thước ảnh */
+        width: 250px;
         height: 350px;
     }
 
-    /* Trang Giới Thiệu */
+    /* === SỬA LỖI CĂN CHỈNH TRANG ABOUT === */
     .about-section {
-        padding: 30px 20px; /* Giảm padding */
+        padding: 30px 20px;
+        text-align: center; /* Căn giữa mặc định cho toàn section */
+    }
+    .info-grid {
+        text-align: left; /* Giữ các đoạn văn bản dài căn trái cho dễ đọc */
     }
     .skills-grid {
-        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* Cho item nhỏ hơn */
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
         gap: 1rem;
     }
     
     /* Trang Dự Án */
     .project-grid {
-        grid-template-columns: 1fr; /* Mỗi hàng 1 dự án */
+        grid-template-columns: 1fr;
         gap: 1rem;
     }
 
     /* Trang Liên Hệ */
     .contact-header::before {
-        font-size: 3.5rem; /* Giảm cỡ chữ nền */
+        font-size: 3.5rem;
     }
     .form-row {
         flex-direction: column;
@@ -1635,7 +1636,7 @@ body::-webkit-scrollbar-thumb:hover { background: var(--color-primary-darker); }
         margin-bottom: 0;
     }
     .form-row input {
-        margin-bottom: 1rem; /* Tạo khoảng cách giữa các input xếp dọc */
+        margin-bottom: 1rem;
     }
 
     /* Popups */
