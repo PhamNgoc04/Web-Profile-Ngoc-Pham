@@ -1626,10 +1626,13 @@ body::-webkit-scrollbar-thumb:hover {
     }
 
     .info-grid {
-        text-align: left;
-        grid-template-columns: 1fr; /* Hiển thị 1 cột cho dễ đọc */
+        width: 100%;
+        padding-left: 0;       /* bỏ padding trái nếu có */
+        padding-right: 0;      /* tương tự bên phải */
+        margin-left: 0;        /* đảm bảo không bị lệch trái */
+        margin-right: 0;
+        grid-template-columns: 1fr;
         gap: 1.2rem;
-        padding-left: 1px;
     }
 
     .skills-grid {
@@ -1649,16 +1652,7 @@ body::-webkit-scrollbar-thumb:hover {
 
     .about-section h2,
     .about-section p {
-        margin-left: 10px; /* 👈 thêm khoảng lệch nhẹ cho tiêu đề & đoạn văn */
+        margin-left: 1px; /* 👈 thêm khoảng lệch nhẹ cho tiêu đề & đoạn văn */
     }
-
-    @media (max-width: 768px) {
-    .info-grid {
-        grid-template-columns: 1fr;
-        gap: 1.2rem;
-        padding-left: 15px; /* 👈 Thêm phần này để đẩy lệch trái */
-        }
-    }
-
 
 }
