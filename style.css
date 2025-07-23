@@ -1617,41 +1617,32 @@ body::-webkit-scrollbar-thumb:hover {
     /* === SỬA LỖI CĂN CHỈNH TRANG ABOUT === */
     .about-section {
         padding: 30px 20px;
-        text-align: center; /* Căn giữa mặc định cho toàn section */
+        text-align: center;
     }
+
+    .about-section h2 {
+        margin-bottom: 1.5rem;
+    }
+
     .info-grid {
-        text-align: left; /* Giữ các đoạn văn bản dài căn trái cho dễ đọc */
+        text-align: left;
+        grid-template-columns: 1fr; /* Hiển thị 1 cột cho dễ đọc */
+        gap: 1rem;
     }
+
     .skills-grid {
-        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
         gap: 1rem;
+        justify-items: center; /* Căn giữa item */
     }
-    
-    /* Trang Dự Án */
-    .project-grid {
-        grid-template-columns: 1fr;
+
+    .skill-item {
+        padding: 15px;
+    }
+
+    .education-grid {
+        grid-template-columns: 1fr; /* Mỗi mục là 1 dòng */
         gap: 1rem;
     }
 
-    /* Trang Liên Hệ */
-    .contact-header::before {
-        font-size: 3.5rem;
-    }
-    .form-row {
-        flex-direction: column;
-        gap: 0;
-        margin-bottom: 0;
-    }
-    .form-row input {
-        margin-bottom: 1rem;
-    }
-
-    /* Popups */
-    .popup .close-popup-btn {
-        top: 10px;
-        right: 10px;
-    }
-    .project-popup-details {
-        padding: 20px;
-    }
 }
