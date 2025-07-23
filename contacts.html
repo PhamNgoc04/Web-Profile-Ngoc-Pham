@@ -1,189 +1,186 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Me - Portfolio</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Me - Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
 
-
-    <!-- Font Awesome CDN -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-
-<style>
+  <style>
     /* Social bar fixed on left */
     .social-bar {
-        position: fixed;
-        top: 40%;
-        left: 0;
-        display: flex;
-        flex-direction: column;
-        gap: 15px;
-        z-index: 999;
+      position: fixed;
+      top: 40%;
+      left: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      z-index: 999;
     }
 
     .social-bar a {
-        width: 50px;
-        height: 50px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        border-radius: 0 8px 8px 0;
-        background: #1e1e1e;
-        color: #fff;
-        font-size: 22px;
-        text-decoration: none;
-        box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
-        transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
-        position: relative;
-        overflow: hidden;
+      width: 50px;
+      height: 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 0 8px 8px 0;
+      background: #1e1e1e;
+      color: #fff;
+      font-size: 22px;
+      text-decoration: none;
+      box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+      overflow: hidden;
     }
 
     .social-bar a::before {
-        content: '';
-        position: absolute;
-        inset: 0;
-        background: linear-gradient(45deg, #f9bf3f, #ff7b00);
-        opacity: 0;
-        transition: opacity 0.3s ease;
-        z-index: 0;
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(45deg, #f9bf3f, #ff7b00);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      z-index: 0;
     }
 
     .social-bar a:hover::before {
-        opacity: 1;
+      opacity: 1;
     }
 
     .social-bar a i {
-        z-index: 1;
-        position: relative;
+      z-index: 1;
+      position: relative;
     }
 
     .social-bar a:hover {
-        transform: translateX(10px) scale(1.1);
-        box-shadow: 3px 3px 15px rgba(249, 191, 63, 0.6);
+      transform: translateX(10px) scale(1.1);
+      box-shadow: 3px 3px 15px rgba(249, 191, 63, 0.6);
     }
 
-    /* Individual colors on hover */
     .facebook:hover::before {
-        background: linear-gradient(45deg, #3b5998, #00acee);
+      background: linear-gradient(45deg, #3b5998, #00acee);
     }
 
     .github:hover::before {
-        background: linear-gradient(45deg, #333333, #6e5494);
+      background: linear-gradient(45deg, #333333, #6e5494);
     }
 
     .email:hover::before {
-        background: linear-gradient(45deg, #d44638, #ff7b00);
+      background: linear-gradient(45deg, #d44638, #ff7b00);
     }
 
-    /* Mobile responsive */
+    html, body {
+    height: 100%;
+    overflow-y: auto;
+}
+
+body {
+    overflow-y: scroll;
+}
+
+
     @media (max-width: 600px) {
-        .social-bar {
-            top: unset;
-            bottom: 10px;
-            left: 10px;
-            flex-direction: row;
-        }
+      .social-bar {
+        top: unset;
+        bottom: 10px;
+        left: 10px;
+        flex-direction: row;
+      }
 
-        .social-bar a {
-            border-radius: 50%;
-        }
+      .social-bar a {
+        border-radius: 50%;
+      }
     }
-</style>
 
+    
+  </style>
 </head>
 <body>
+  <header class="contact-header">
+    <h1>GET IN <span class="highlight">TOUCH</span></h1>
+  </header>
 
-    <div class="scroll-container">
-        <header class="contact-header">
-            <h1>GET IN <span class="highlight">TOUCH</span></h1>
-        </header>
+  <main class="contact-content">
+    <div class="contact-info">
+      <h2>DON'T BE SHY</h2>
+      <p>
+        Thank you for reading to the end. I hope that you have learned a little about me through this site. If you have any comments about this site or me, please use the form.
+      </p>
 
-        <main class="contact-content">
-            <div class="contact-info">
-                <h2>DON'T BE SHY</h2>
-                <p>
-                    Thank you for reading to the end. I hope that you have learned a little about me through this site. If you have any comments about this site or me, please use the form.
-                </p>
+      <div class="info-item">
+        <i class="fas fa-map-marker-alt highlight"></i>
+        <div>
+          <h4>ADDRESS</h4>
+          <p>HUNG YEN</p>
+        </div>
+      </div>
 
-                <div class="info-item">
-                    <i class="fas fa-map-marker-alt highlight"></i>
-                    <div>
-                        <h4>ADDRESS</h4>
-                        <p>HUNG YEN</p>
-                    </div>
-                </div>
+      <div class="info-item">
+        <i class="fas fa-envelope highlight"></i>
+        <div>
+          <h4>EMAIL</h4>
+          <p>ngocpb04@gmail.com</p>
+        </div>
+      </div>
 
-                <div class="info-item">
-                    <i class="fas fa-envelope highlight"></i>
-                    <div>
-                        <h4>EMAIL</h4>
-                        <p>ngocpb04@gmail.com</p>
-                    </div>
-                </div>
-
-                <div class="info-item">
-                    <i class="fas fa-phone-alt highlight"></i>
-                    <div>
-                        <h4>PHONE</h4>
-                        <p>099999999999</p>
-                    </div>
-                </div>
-                
-    <div class="social-bar">
-        <a href="https://www.facebook.com/pham.ngoc.158605" target="_blank" aria-label="Facebook" class="facebook">
-            <i class="fab fa-facebook-f"></i>
-        </a>
-        <a href="https://github.com/PhamNgoc04/" target="_blank" aria-label="GitHub" class="github">
-            <i class="fab fa-github"></i>
-        </a>
-        <a href="mailto:your.email@gmail.com" aria-label="Email" class="email">
-            <i class="fas fa-envelope"></i>
-        </a>
+      <div class="info-item">
+        <i class="fas fa-phone-alt highlight"></i>
+        <div>
+          <h4>PHONE</h4>
+          <p>099999999999</p>
+        </div>
+      </div>
     </div>
 
-    <!-- Font Awesome CDN -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <form class="contact-form" id="main-contact-form">
+      <div class="form-row">
+        <input type="text" name="name" placeholder="NAME" required />
+        <input type="email" name="email" placeholder="EMAIL" required />
+      </div>
+      <div class="form-row">
+        <input type="text" name="subject" placeholder="SUBJECT" required />
+      </div>
+      <div class="form-row">
+        <textarea name="message" placeholder="YOUR MESSAGE" required></textarea>
+      </div>
+      <button type="submit" class="submit-btn">
+        <span class="btn-text">SEND MESSAGE</span>
+        <span class="btn-icon"><i class="fas fa-paper-plane"></i></span>
+      </button>
+    </form>
+    <div style="height: 600px;"></div>
 
-                <!-- Font Awesome CDN -->
-                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  </main>
 
+  <!-- Social Bar -->
+  <div class="social-bar">
+    <a href="https://www.facebook.com/pham.ngoc.158605" target="_blank" aria-label="Facebook" class="facebook">
+      <i class="fab fa-facebook-f"></i>
+    </a>
+    <a href="https://github.com/PhamNgoc04/" target="_blank" aria-label="GitHub" class="github">
+      <i class="fab fa-github"></i>
+    </a>
+    <a href="mailto:ngocpb04@gmail.com" aria-label="Email" class="email">
+      <i class="fas fa-envelope"></i>
+    </a>
+  </div>
 
-            </div>
-
-            <form class="contact-form" id="main-contact-form">
-                <div class="form-row">
-                    <input type="text" name="name" placeholder="NAME" required>
-                    <input type="email" name="email" placeholder="EMAIL" required>
-                </div>
-                <div class="form-row">
-                    <input type="text" name="subject" placeholder="SUBJECT" required>
-                </div>
-                <div class="form-row">
-                    <textarea name="message" placeholder="YOUR MESSAGE" required></textarea>
-                </div>
-                <button type="submit" class="submit-btn">
-                    <span class="btn-text">SEND MESSAGE</span>
-                    <span class="btn-icon"><i class="fas fa-paper-plane"></i></span>
-                </button>
-            </form>
-        </main>
+  <!-- RIGHT NAVIGATION -->
+  <nav class="right-nav">
+    <div class="theme-toggle" id="theme-toggle" data-tooltip="Đổi giao diện">
+      <i class="fas fa-lightbulb"></i>
     </div>
+    <ul>
+      <li><a href="index.html" class="nav-link active" data-tooltip="Home"><i class="fas fa-home"></i></a></li>
+      <li><a href="about.html" class="nav-link" data-tooltip="About"><i class="fas fa-user"></i></a></li>
+      <li><a href="projects.html" class="nav-link" data-tooltip="Projects"><i class="fas fa-briefcase"></i></a></li>
+      <li><a href="contacts.html" class="nav-link" data-tooltip="Contact"><i class="fas fa-envelope"></i></a></li>
+    </ul>
+  </nav>
 
-        <!-- RIGHT NAVIGATION -->
-        <nav class="right-nav">
-            <div class="theme-toggle" id="theme-toggle" data-tooltip="Đổi giao diện">
-                <i class="fas fa-lightbulb"></i>
-            </div>
-            <ul>
-                <li><a href="index.html" class="nav-link active" data-tooltip="Home"><i class="fas fa-home"></i></a></li>
-                <li><a href="about.html" class="nav-link" data-tooltip="About"><i class="fas fa-user"></i></a></li>
-                <li><a href="projects.html" class="nav-link" data-tooltip="Projects"><i class="fas fa-briefcase"></i></a></li>
-                <li><a href="contacts.html" class="nav-link" data-tooltip="Contact"><i class="fas fa-envelope"></i></a></li>
-            </ul>
-        </nav>
-
-    <script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
