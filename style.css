@@ -1617,7 +1617,8 @@ body::-webkit-scrollbar-thumb:hover {
     /* === SỬA LỖI CĂN CHỈNH TRANG ABOUT === */
     .about-section {
         padding: 30px 20px;
-        text-align: center;
+        text-align: left;
+        padding-left: 30px;
     }
 
     .about-section h2 {
@@ -1627,7 +1628,7 @@ body::-webkit-scrollbar-thumb:hover {
     .info-grid {
         text-align: left;
         grid-template-columns: 1fr; /* Hiển thị 1 cột cho dễ đọc */
-        gap: 1rem;
+        gap: 1.2rem;
     }
 
     .skills-grid {
@@ -1643,6 +1644,11 @@ body::-webkit-scrollbar-thumb:hover {
     .education-grid {
         grid-template-columns: 1fr; /* Mỗi mục là 1 dòng */
         gap: 1rem;
+    }
+
+    .about-section h2,
+    .about-section p {
+        margin-left: 10px; /* 👈 thêm khoảng lệch nhẹ cho tiêu đề & đoạn văn */
     }
 
 }
