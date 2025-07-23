@@ -1628,10 +1628,15 @@ body::-webkit-scrollbar-thumb:hover {
 
 .info-grid {
     text-align: left;
-    grid-template-columns: 1fr; /* Hiển thị 1 cột cho dễ đọc */
+    grid-template-columns: 1fr;
     gap: 1.2rem;
-    margin-left: 15px; /* 👈 Lệch trái 15px chính xác */
+    padding-left: 0; /* Xóa padding tổng thể nếu có */
 }
+
+.info-grid > * {
+    padding-left: 10px; /* 👈 Nội dung bên trong gần sát trái */
+}
+
 
 .skills-grid {
     grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
