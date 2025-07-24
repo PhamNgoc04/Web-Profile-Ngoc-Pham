@@ -1421,7 +1421,7 @@ body::-webkit-scrollbar-thumb:hover {
 .filter-btn.active { background-color: var(--color-primary); color: #000; }
 .project-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.5rem; }
 .project-item {
-    background-color: var(--black);
+    background-color: var(--secondary-bg-color);
     border-radius: 10px;
     overflow: hidden;
     cursor: pointer;
@@ -1498,7 +1498,7 @@ body::-webkit-scrollbar-thumb:hover {
 }
 .popup.active { display: flex; }
 .popup .popup-content {
-    background: var(--secondary-bg-color);
+    background: var(--black);
     border-radius: 12px;
     position: relative;
     max-width: 900px;
@@ -1581,7 +1581,7 @@ body::-webkit-scrollbar-thumb:hover {
         right: 0;
         width: 100%;
         transform: none;
-        background: var(--secondary-bg-color);
+        background: var(--black);
         justify-content: space-around;
         padding: 5px 0;
         border-radius: 0;
