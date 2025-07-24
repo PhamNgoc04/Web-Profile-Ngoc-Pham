@@ -1532,6 +1532,7 @@ body::-webkit-scrollbar-thumb:hover {
 .project-popup-info a { color: var(--color-primary); text-decoration: none; }
 .project-popup-info a:hover { text-decoration: underline; }
 
+
 /* ========== 10. RESPONSIVE DESIGN (BẢN CẬP NHẬT HOÀN CHỈNH) ========== */
 
 /* --- CHO MÁY TÍNH BẢNG --- */
@@ -1682,7 +1683,7 @@ body::-webkit-scrollbar-thumb:hover {
 .popup-content,
 .project-popup .popup-content {
     background: var(--secondary-bg-color, #1e1e1e);
-    color: var(--text-color, #fff);
+    /* color: var(--text-color, #fff); */
     border-radius: 12px;
     width: 100%;
     max-width: 900px;
