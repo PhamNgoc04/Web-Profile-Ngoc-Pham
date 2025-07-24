@@ -1616,47 +1616,200 @@ body::-webkit-scrollbar-thumb:hover {
 
     /* === SỬA LỖI CĂN CHỈNH TRANG ABOUT === */
     /* === SỬA LỖI CĂN CHỈNH TRANG ABOUT === */
-.about-section {
-    padding: 30px 20px;
-    text-align: left;
-    padding-left: 30px;
+    .about-section {
+        padding: 30px 20px;
+        text-align: left;
+        padding-left: 30px;
+    }
+
+    .about-section h2 {
+        margin-bottom: 1.5rem;
+    }
+
+    .info-grid {
+        text-align: left;
+        grid-template-columns: 1fr;
+        gap: 1.2rem;
+        padding-left: 0; /* Xóa padding tổng thể nếu có */
+    }
+
+    .info-grid > * {
+        padding-left: 0px; /* 👈 Nội dung bên trong gần sát trái */
+        margin-left: -15px;
+    }
+
+
+    .skills-grid {
+        grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+        gap: 1.2rem;
+        justify-items: center;
+    }
+
+    .skill-item {
+        padding: 15px;
+    }
+
+    .education-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .about-section h2,
+    .about-section p {
+        margin-left: 1px;
+    }
+
+    /* Popup Projects */
+.project-popup,
+.popup {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(4px);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
 }
 
-.about-section h2 {
-    margin-bottom: 1.5rem;
+.project-popup.active,
+.popup.active {
+    display: flex;
 }
 
-.info-grid {
-    text-align: left;
-    grid-template-columns: 1fr;
-    gap: 1.2rem;
-    padding-left: 0; /* Xóa padding tổng thể nếu có */
+/* Popup box */
+.popup-content,
+.project-popup .popup-content {
+    background: var(--secondary-bg-color, #1e1e1e);
+    color: var(--text-color, #fff);
+    border-radius: 12px;
+    width: 100%;
+    max-width: 900px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+    position: relative;
+    overflow: hidden;
+    animation: slideUp 0.4s ease;
 }
 
-.info-grid > * {
-    padding-left: 0px; /* 👈 Nội dung bên trong gần sát trái */
-    margin-left: -15px;
+/* Close button */
+.close-btn,
+.close-popup-btn {
+    position: absolute;
+    top: 12px;
+    right: 16px;
+    background: var(--bg-color, #2b2b2b);
+    color: var(--text-color, #fff);
+    border: none;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    transition: transform 0.3s ease, color 0.3s ease;
+    z-index: 2;
 }
 
-
-.skills-grid {
-    grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
-    gap: 1.2rem;
-    justify-items: center;
+.close-btn:hover,
+.close-popup-btn:hover {
+    transform: rotate(90deg);
+    color: var(--color-primary, #f9bf3f);
 }
 
-.skill-item {
-    padding: 15px;
+/* Grid layout */
+.popup-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    padding: 20px;
 }
 
-.education-grid {
-    grid-template-columns: 1fr;
-    gap: 1rem;
+.popup-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px 0 0 10px;
+    object-fit: cover;
 }
 
-.about-section h2,
-.about-section p {
-    margin-left: 1px;
+/* Right: Details */
+.popup-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+}
+
+.popup-title {
+    color: var(--color-primary, #f9bf3f);
+    font-size: 24px;
+    margin-bottom: 8px;
+}
+
+.popup-description {
+    font-size: 15px;
+    color: #ddd;
+    line-height: 1.6;
+}
+
+.popup-info {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.popup-info li {
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.popup-info a {
+    color: var(--color-primary, #f9bf3f);
+    text-decoration: none;
+}
+
+.popup-info a:hover {
+    text-decoration: underline;
+}
+
+/* Animations */
+@keyframes slideUp {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+/* =========== RESPONSIVE (Mobile) =========== */
+@media (max-width: 768px) {
+    .popup-grid {
+        grid-template-columns: 1fr;
+        padding: 15px;
+    }
+
+    .popup-image img {
+        border-radius: 10px 10px 0 0;
+    }
+
+    .popup-title {
+        font-size: 20px;
+        text-align: center;
+    }
+
+    .popup-description {
+        font-size: 14px;
+        text-align: justify;
+    }
+
+    .popup-info li {
+        font-size: 13px;
+    }
+
+    .popup-content,
+    .project-popup .popup-content {
+        width: 95%;
+        max-height: 90vh;
+        overflow-y: auto;
+        padding-bottom: 1rem;
+    }
 }
 
 }
