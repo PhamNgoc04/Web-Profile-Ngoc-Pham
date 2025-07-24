@@ -1683,7 +1683,7 @@ body::-webkit-scrollbar-thumb:hover {
 .popup-content,
 .project-popup .popup-content {
     background: var(--secondary-bg-color, #1e1e1e);
-    /* color: var(--text-color, #fff); */
+    color: var(--text-color, #000;
     border-radius: 12px;
     width: 100%;
     max-width: 900px;
