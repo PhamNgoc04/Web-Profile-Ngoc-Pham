@@ -1545,9 +1545,9 @@ body::-webkit-scrollbar-thumb:hover {
     .left-panel {
         clip-path: none;
         border-radius: 20px 20px 0 0;
-        /* padding: 2rem 0; */
+        padding: 2rem 0;
         /* margin-left: 30px; */
-        margin-right: 30px;
+        /* margin-right: 30px; */
     }
     .content-panel {
         border-radius: 0 0 20px 20px;
