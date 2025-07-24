@@ -1422,7 +1422,7 @@ body::-webkit-scrollbar-thumb:hover {
 .filter-btn.active { background-color: var(--color-primary); color: #000; }
 .project-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.5rem; }
 .project-item {
-    background-color: var(--black);
+    background-color: var(--secondary-bg-color);
     border-radius: 10px;
     overflow: hidden;
     cursor: pointer;
