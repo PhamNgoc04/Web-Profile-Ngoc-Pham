@@ -1693,29 +1693,25 @@ body::-webkit-scrollbar-thumb:hover {
 }
 
 /* Close button */
+/* Close Button - Đơn giản */
 .close-btn,
 .close-popup-btn {
     position: absolute;
     top: 12px;
     right: 16px;
-    background: var(--bg-color, #2b2b2b);
-    color: var(--text-color, #fff);
+    background: none;
+    color: #000; /* hoặc #333 để dịu hơn */
     border: none;
-    font-size: 28px;
-    font-weight: bold;
+    font-size: 24px;
     cursor: pointer;
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    transition: transform 0.3s ease, color 0.3s ease;
     z-index: 2;
 }
 
 .close-btn:hover,
 .close-popup-btn:hover {
-    transform: rotate(90deg);
     color: var(--color-primary, #f9bf3f);
 }
+
 
 /* Grid layout */
 .popup-grid {
