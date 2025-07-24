@@ -1741,12 +1741,13 @@ body::-webkit-scrollbar-thumb:hover {
     font-size: 24px;
     margin-bottom: 8px;
 }
-/* 
+
+/*Đây nhé*/
 .popup-description {
     font-size: 15px;
     color: #000;
     line-height: 1.6;
-} */
+}
 
 .popup-info {
     list-style: none;
@@ -1789,11 +1790,11 @@ body::-webkit-scrollbar-thumb:hover {
         font-size: 20px;
         text-align: center;
     }
-/* 
+
     .popup-description {
         font-size: 14px;
         text-align: justify;
-    } */
+    }
 
     .popup-info li {
         font-size: 13px;
@@ -1806,6 +1807,32 @@ body::-webkit-scrollbar-thumb:hover {
         overflow-y: auto;
         padding-bottom: 1rem;
     }
+
+    .popup .popup-content {
+    background: #fff;
+    color: #000;
+    border-radius: 12px;
+    max-width: 900px;
+    width: 100%;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+}
+
+.popup-title {
+    font-size: 24px;
+    color: #000;
+}
+
+.popup-description {
+    font-size: 15px;
+    color: #000;
+    line-height: 1.6;
+}
+
+.popup-info li {
+    color: #000;
+    font-size: 14px;
+}
+
 }
 
 }
