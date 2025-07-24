@@ -1809,28 +1809,24 @@ body::-webkit-scrollbar-thumb:hover {
     }
 
     .popup .popup-content {
-    background: #fff;
-    color: #000;
-    border-radius: 12px;
-    max-width: 900px;
-    width: 100%;
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+  background: var(--bg-color);
+  color: var(--text-color);
 }
 
 .popup-title {
-    font-size: 24px;
-    color: #000;
+  color: var(--text-color);
 }
 
 .popup-description {
-    font-size: 15px;
-    color: #000;
-    line-height: 1.6;
+  color: var(--text-color);
 }
 
 .popup-info li {
-    color: #000;
-    font-size: 14px;
+  color: var(--text-color);
+}
+
+.popup-info a {
+  color: var(--color-primary); /* giữ nguyên màu nổi bật */
 }
 
 }
