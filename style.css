@@ -138,7 +138,7 @@ body {
 .main-container {
     display: flex;
     flex-direction: row;
-    width: 90%;
+    width: 100%;
     max-width: 1200px;
     border-radius: 20px;
     overflow: hidden;
@@ -403,7 +403,7 @@ body {
 
 /* --- ABOUT PAGE STYLE --- */
 .about-container {
-    width: 93%;
+    width: 100%;
     max-width: 1500px;
     margin: 10px auto;
     padding: 40px;
@@ -1387,9 +1387,9 @@ body::-webkit-scrollbar-thumb:hover {
 
 /* --- RESPONSIVE --- */
 @media (max-width: 768px) {
-    .main-container {
+    /* .main-container {
         flex-direction: column;
-    }
+    } */
     .left-panel {
         clip-path: none;
     }
@@ -1536,15 +1536,17 @@ body::-webkit-scrollbar-thumb:hover {
 
 /* --- CHO MÁY TÍNH BẢNG --- */
 @media (max-width: 992px) {
-    .main-container {
+    /* .main-container {
         flex-direction: column;
         width: 100%;
         max-width: 500px;
-    }
+    } */
     .left-panel {
         clip-path: none;
         border-radius: 20px 20px 0 0;
         padding: 2rem 0;
+        margin-left: 30px;
+        margin-right: 30px;
     }
     .content-panel {
         border-radius: 0 0 20px 20px;
