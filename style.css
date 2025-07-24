@@ -1741,12 +1741,12 @@ body::-webkit-scrollbar-thumb:hover {
     font-size: 24px;
     margin-bottom: 8px;
 }
-
+/* 
 .popup-description {
     font-size: 15px;
     color: #000;
     line-height: 1.6;
-}
+} */
 
 .popup-info {
     list-style: none;
