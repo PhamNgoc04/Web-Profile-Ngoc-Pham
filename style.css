@@ -147,8 +147,8 @@ body {
 
 /* LEFT PANEL */
 .left-panel {
-    
-    width: 100%;
+    flex: 5; /* Tăng tỷ lệ để panel trái rộng hơn */
+    width: 50%;
     background: linear-gradient(135deg, var(--color-primary), #ffecb3);
     display: flex;
     justify-content: center;
@@ -1292,6 +1292,7 @@ body::-webkit-scrollbar-thumb:hover {
     overflow: hidden;
     box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
     cursor: pointer;
+    
 }
 
 .image-container img {
@@ -1545,7 +1546,7 @@ body::-webkit-scrollbar-thumb:hover {
         clip-path: none;
         border-radius: 20px 20px 0 0;
         padding: 2rem 0;
-        margin-left: 30px;
+        /* margin-left: 30px; */
         margin-right: 30px;
     }
     .content-panel {
