@@ -12,7 +12,6 @@
 
     --bg-color: var(--color-dark-bg);
     --text-color: var(--color-white);
-    --text-color-black: var(var(--color-dark-gray))
     --secondary-bg-color: var(--color-dark-gray);
 
     --transition-speed: 0.4s ease-in-out; /* ✅ Thêm tốc độ transition */
@@ -1505,7 +1504,6 @@ body::-webkit-scrollbar-thumb:hover {
     max-width: 900px;
     width: 100%;
     box-shadow: 0 8px 30px var(--shadow-color);
-    color: var(--text-color-black); /* đảm bảo chữ mặc định là đen nếu biến đúng */
 }
 .popup .close-popup-btn {
     position: absolute;
@@ -1531,7 +1529,7 @@ body::-webkit-scrollbar-thumb:hover {
 .project-popup-details p { color: var(--text-color-secondary); margin-bottom: 1.5rem; }
 .project-popup-info { list-style: none; }
 .project-popup-info li { margin-bottom: 0.5rem; }
-.project-popup-info a { color: var(--text-color-black); text-decoration: none; }
+.project-popup-info a { color: var(--color-primary); text-decoration: none; }
 .project-popup-info a:hover { text-decoration: underline; }
 
 
@@ -1685,7 +1683,7 @@ body::-webkit-scrollbar-thumb:hover {
 .popup-content,
 .project-popup .popup-content {
     background: var(--secondary-bg-color, #1e1e1e);
-    color: var(--text-color-black, #000);
+    color: var(--text-color, #fff);
     border-radius: 12px;
     width: 100%;
     max-width: 900px;
