@@ -32,7 +32,7 @@
         <!-- Filter buttons -->
         <nav class="filter-nav">
             <button class="filter-btn active" data-filter="all">ALL</button>
-            <button class="filter-btn" data-filter="html-css-js">Kotlin</button>
+            <button class="filter-btn" data-filter="kotlin">Kotlin</button>
             <button class="filter-btn" data-filter="thymeleaf">MySQL</button>
             <button class="filter-btn" data-filter="nextjs">Jetpack Compose</button>
             <button class="filter-btn" data-filter="ktor">Ktor</button>
@@ -40,47 +40,43 @@
 
         <!-- Projects Grid -->
         <main class="project-grid">
-            <div class="project-item" data-category="html-css-js">
-                <img src="img_profile.jpg" alt="Food Order App">
+            <div class="project-item" data-category="kotlin" data-title="Food Delivery Kotlin App" data-description="Ứng dụng giao đồ ăn viết bằng Kotlin và Jetpack Compose." data-role="Mobile Developer" data-frontend="Jetpack Compose" data-backend="Firebase" data-tags="kotlin / jetpack / firebase" data-source="https://github.com/PhamNgoc04/food-app" data-demo="#">
+                <img src="https://st2.depositphotos.com/1007566/7480/v/950/depositphotos_74809463-stock-illustration-food-delivery.jpg" alt="Food Delivery Kotlin App">
             </div>
-            <div class="project-item" data-category="nextjs">
-                <img src="img_profile.jpg" alt="Portfolio Website">
+
+            <div class="project-item" data-category="thymeleaf" data-title="E-commerce Website" data-description="Website bán hàng tích hợp Thymeleaf, Spring Boot và MySQL." data-role="Fullstack Developer" data-frontend="HTML, CSS, Thymeleaf" data-backend="Spring Boot, MySQL" data-tags="spring / mysql / thymeleaf" data-source="https://github.com/PhamNgoc04/ecommerce-site" data-demo="#">
+                <img src="https://media.istockphoto.com/id/1025182672/pt/vetorial/landing-page-template-of-online-shopping-services-modern-flat-design-concept-of-web-page.jpg?s=612x612&w=0&k=20&c=5BtB5WPtuEojUyUnaB8k7l48N-BYsEsxrKOW3g2p0l0=" alt="E-commerce MySQL Integration">
             </div>
-            <div class="project-item" data-category="thymeleaf">
-                <img src="img_profile.jpg" alt="E-commerce">
+
+            <div class="project-item" data-category="ktor" data-title="Backend Ktor Service" data-description="API backend đơn giản sử dụng Ktor, JWT Auth và Exposed ORM." data-role="Backend Developer" data-frontend="-" data-backend="Ktor, Exposed, JWT" data-tags="ktor / api / jwt" data-source="https://github.com/PhamNgoc04/backend-ktor" data-demo="#">
+                <img src="https://tse3.mm.bing.net/th/id/OIP.aHMa1x6k3-OZd67le4ecEQHaGp?r=0&w=1176&h=1056&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Ktor Backend API Service">
             </div>
-            <div class="project-item" data-category="api">
-                <img src="img_profile.jpg" alt="API Project">
+
+            <div class="project-item" data-category="ktor" data-title="InstaGallery App" data-description="Ứng dụng chia sẻ ảnh tích hợp Ktor backend và Jetpack Compose UI." data-role="Fullstack Developer" data-frontend="Jetpack Compose" data-backend="Ktor, JWT" data-tags="ktor / compose / auth" data-source="https://github.com/PhamNgoc04/instagallery" data-demo="#">
+                <img src="https://tse2.mm.bing.net/th/id/OIP.O_TYWUvH5glwU-ZLcywTFQHaFj?r=0&w=1024&h=768&rs=1&pid=ImgDetMain&o=7&rm=3" alt="InstaGallery App with Ktor & Jetpack Compose">
             </div>
-            <div class="project-item" data-category="html-css-js">
-                <img src="img_profile.jpg" alt="Landing Page">
-            </div>
-            <div class="project-item" data-category="nextjs">
-                <img src="img_profile.jpg" alt="React App">
-            </div>
+
+            
         </main>
+
 
         <!-- POPUP CHI TIẾT DỰ ÁN -->
         <div class="project-popup" id="projectPopup">
             <div class="popup-content">
                 <button class="close-btn" id="closePopup">&times;</button>
                 <div class="popup-grid">
-                    <!-- Left: Image -->
                     <div class="popup-image">
                         <img src="img_profile.jpg" alt="Project Image" id="popupImage">
                     </div>
-                    <!-- Right: Details -->
                     <div class="popup-details">
-                        <h2 id="popupTitle" class="popup-title">MYFOODIE</h2>
-                        <p id="popupDescription" class="popup-description">
-                            This is my first project using HTML, CSS, JavaScript. It’s a clone of Lotteria fast food restaurant website.
-                        </p>
+                        <h2 id="popupTitle" class="popup-title"></h2>
+                        <p id="popupDescription" class="popup-description"></p>
                         <ul class="popup-info">
                             <li><strong>📅 Created:</strong> <span id="popupDate">01/01/2024</span></li>
-                            <li><strong>👨‍💻 Role:</strong> <span id="popupRole">Main Developer</span></li>
-                            <li><strong>🎨 Frontend:</strong> <span id="popupFrontend">HTML, CSS, JavaScript</span></li>
-                            <li><strong>🗄️ Backend:</strong> <span id="popupBackend">None</span></li>
-                            <li><strong>🏷️ Tags:</strong> <span id="popupTags">html / css / javascript / food</span></li>
+                            <li><strong>👨‍💻 Role:</strong> <span id="popupRole"></span></li>
+                            <li><strong>🎨 Frontend:</strong> <span id="popupFrontend"></span></li>
+                            <li><strong>🗄️ Backend:</strong> <span id="popupBackend"></span></li>
+                            <li><strong>🏷️ Tags:</strong> <span id="popupTags"></span></li>
                             <li><strong>🔗 Source:</strong> <a href="#" id="popupSource" target="_blank">View on GitHub</a></li>
                             <li><strong>🚀 Demo:</strong> <a href="#" id="popupDemo" target="_blank">Live Demo</a></li>
                         </ul>
@@ -134,22 +130,15 @@
         // Show popup
         projectItems.forEach(item => {
             item.addEventListener('click', () => {
-                // Lấy thông tin từ project
-                const imgSrc = item.querySelector('img').src;
-                const title = item.querySelector('img').alt;
-
-                // Cập nhật nội dung popup
-                document.getElementById('popupImage').src = imgSrc;
-                document.getElementById('popupTitle').textContent = title;
-                document.getElementById('popupDescription').textContent = "This is a sample description for " + title;
-                document.getElementById('popupDate').textContent = "01/01/2024";
-                document.getElementById('popupRole').textContent = "Main Developer";
-                document.getElementById('popupFrontend').textContent = "HTML, CSS, JavaScript";
-                document.getElementById('popupBackend').textContent = "None";
-                document.getElementById('popupTags').textContent = "html / css / javascript";
-                document.getElementById('popupSource').href = "#";
-                document.getElementById('popupDemo').href = "#";
-
+                document.getElementById('popupImage').src = item.querySelector('img').src;
+                document.getElementById('popupTitle').textContent = item.dataset.title;
+                document.getElementById('popupDescription').textContent = item.dataset.description;
+                document.getElementById('popupRole').textContent = item.dataset.role;
+                document.getElementById('popupFrontend').textContent = item.dataset.frontend;
+                document.getElementById('popupBackend').textContent = item.dataset.backend;
+                document.getElementById('popupTags').textContent = item.dataset.tags;
+                document.getElementById('popupSource').href = item.dataset.source;
+                document.getElementById('popupDemo').href = item.dataset.demo;
                 popup.classList.add('active');
             });
         });
@@ -172,14 +161,8 @@
         //     document.body.classList.toggle('light-theme');
         // });
 
-
-
     </script>
 
     <script src="script.js"></script>
-
-    
-
-
 </body>
 </html>
