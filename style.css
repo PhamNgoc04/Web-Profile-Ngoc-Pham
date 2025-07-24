@@ -1789,15 +1789,22 @@ body::-webkit-scrollbar-thumb:hover {
     .popup-title {
         font-size: 20px;
         text-align: center;
+        color: var(--text-color);
     }
 
     .popup-description {
         font-size: 14px;
         text-align: justify;
+        color: var(--text-color);
     }
 
     .popup-info li {
         font-size: 13px;
+        color: var(--text-color);
+    }
+
+    .popup-info a {
+        color: var(--color-primary); /* giữ nguyên màu nổi bật */
     }
 
     .popup-content,
@@ -1806,29 +1813,8 @@ body::-webkit-scrollbar-thumb:hover {
         max-height: 90vh;
         overflow-y: auto;
         padding-bottom: 1rem;
+        background: var(--bg-color);
+        color: var(--text-color);
     }
-
-    .popup .popup-content {
-  background: var(--bg-color);
-  color: var(--text-color);
 }
-
-.popup-title {
-  color: var(--text-color);
-}
-
-.popup-description {
-  color: var(--text-color);
-}
-
-.popup-info li {
-  color: var(--text-color);
-}
-
-.popup-info a {
-  color: var(--color-primary); /* giữ nguyên màu nổi bật */
-}
-
-}
-
 }
