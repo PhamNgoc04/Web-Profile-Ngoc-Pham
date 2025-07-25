@@ -1601,7 +1601,7 @@ body::-webkit-scrollbar-thumb:hover {
 
     /* === SỬA LỖI CĂN CHỈNH TRANG HOME === */
     .content-panel {
-        padding: 40px 25px;
+        padding: 40px;
         text-align: center; /* Căn giữa toàn bộ text */
     }
 
