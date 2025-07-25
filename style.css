@@ -1285,7 +1285,7 @@ body::-webkit-scrollbar-thumb:hover {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding-right: 20px;
+    padding-right: 40px;
 }
 
 .image-container {
