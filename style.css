@@ -1268,8 +1268,6 @@ body::-webkit-scrollbar-thumb:hover {
     overflow: hidden;
     box-shadow: 0 10px 30px var(--shadow);
     background: var(--bg-color);
-    margin-left: auto;     /* đẩy container sang phải */
-    margin-right: 230px;   /* cách mép phải 100px */
     margin-top: 40px;
 }
 
@@ -1288,14 +1286,13 @@ body::-webkit-scrollbar-thumb:hover {
 }
 
 .image-container {
-    width: 100%;
+    width: 90%;
     max-width: 300px;
     height: 420px;
     border-radius: 25px;
     overflow: hidden;
     box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
     cursor: pointer;
-    margin-right: 13px;
 }
 
 .image-container img {
