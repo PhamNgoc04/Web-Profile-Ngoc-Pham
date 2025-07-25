@@ -143,6 +143,7 @@ body {
     border-radius: 20px;
     overflow: hidden;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    margin-left: 50px;
 }
 
 /* LEFT PANEL */
@@ -1268,7 +1269,8 @@ body::-webkit-scrollbar-thumb:hover {
     overflow: hidden;
     box-shadow: 0 10px 30px var(--shadow);
     background: var(--bg-color);
-    margin-top: 40px;
+    margin-top: 30px;
+    
 }
 
 .left-panel,
@@ -1387,10 +1389,7 @@ body::-webkit-scrollbar-thumb:hover {
 }
 
 /* --- RESPONSIVE --- */
-@media (max-width: 768px) {
-    /* .main-container {
-        flex-direction: column;
-    } */
+@media (max-width: 1008px) {
     .left-panel {
         clip-path: none;
     }
@@ -1574,59 +1573,42 @@ body::-webkit-scrollbar-thumb:hover {
 
 /* ========== 10. RESPONSIVE DESIGN (BẢN CẬP NHẬT HOÀN CHỈNH) ========== */
 
-/* --- CHO MÁY TÍNH BẢNG (max-width: 1000px) --- */
+/* --- CHO MÁY TÍNH BẢNG --- */
 @media (max-width: 1000px) {
+
     .left-panel {
         clip-path: none;
         border-radius: 20px 20px 0 0;
         padding: 2rem 0;
+        /* margin-left: 30px; */
+        /* margin-right: 30px; */
     }
-
     .content-panel {
         border-radius: 0 0 20px 20px;
-        padding: 2rem 1.5rem;
     }
-
     .contact-content {
         flex-direction: column;
     }
-
     .project-popup-grid {
         grid-template-columns: 1fr;
     }
-
     .project-popup-img {
         max-height: 300px;
         border-radius: 12px 12px 0 0;
     }
 }
 
-/* --- CHO ĐIỆN THOẠI (max-width: 768px) --- */
+/* --- CHO ĐIỆN THOẠI (PHẦN TỐI ƯU CĂN CHỈNH) --- */
 @media (max-width: 768px) {
-    /* Layout chung */
-    .main-container {
-        flex-direction: column;
-        width: 95%;
-        margin: 20px auto;
-    }
-
+    /* Cỡ chữ và khoảng cách chung */
     .container {
-        padding: 3rem 1rem;
+        padding: 3rem 0;
     }
+    h1 { font-size: 2.2rem; }
+    h2 { font-size: 1.6rem; }
+    p { font-size: 0.95rem; }
 
-    h1 {
-        font-size: 2.2rem;
-    }
-
-    h2 {
-        font-size: 1.6rem;
-    }
-
-    p {
-        font-size: 0.95rem;
-    }
-
-    /* Navigation chuyển xuống dưới */
+    /* Điều hướng chính (thanh dưới cùng) */
     .main-nav {
         flex-direction: row;
         top: auto;
@@ -1642,55 +1624,32 @@ body::-webkit-scrollbar-thumb:hover {
         box-shadow: 0 -5px 15px var(--shadow-color);
         z-index: 1000;
     }
-
     .nav-control {
         width: 45px;
         height: 45px;
         margin: 5px;
     }
-
     .nav-control .tooltip {
         display: none;
     }
 
-    /* HOME SECTION tối ưu mobile */
-    .left-panel {
-        clip-path: none;
-        padding: 1.5rem 0;
-        justify-content: center;
-    }
-
-    .image-container {
-        width: 250px;
-        height: auto;
-        aspect-ratio: 3/4;
-        margin: 0 auto;
-        border-radius: 20px;
-        overflow: hidden;
-    }
-
-    .image-container img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
-
+    /* === SỬA LỖI CĂN CHỈNH TRANG HOME === */
     .content-panel {
-        padding: 2rem 1rem;
-        text-align: center;
+        padding: 40px ;
+        text-align: center; /* Căn giữa toàn bộ text */
     }
 
     .content-panel .line {
-        margin: 0 auto 1rem auto;
+        margin: 0 auto 1rem auto; /* Căn giữa gạch và thêm khoảng cách dưới */
         display: block;
     }
-
     .buttons-container {
-        justify-content: center;
-        flex-wrap: wrap;
+        justify-content: center; /* Căn giữa các nút */
     }
-}
-
+    .image-container {
+        width: 250px;
+        height: 350px;
+    }
 
     /* === SỬA LỖI CĂN CHỈNH TRANG ABOUT === */
     .about-section {
