@@ -1268,6 +1268,9 @@ body::-webkit-scrollbar-thumb:hover {
     overflow: hidden;
     box-shadow: 0 10px 30px var(--shadow);
     background: var(--bg-color);
+    margin-left: auto;     /* đẩy container sang phải */
+    margin-right: 230px;   /* cách mép phải 100px */
+    margin-top: 40px;
 }
 
 .left-panel,
