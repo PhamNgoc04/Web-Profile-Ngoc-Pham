@@ -1268,8 +1268,11 @@ body::-webkit-scrollbar-thumb:hover {
     overflow: hidden;
     box-shadow: 0 10px 30px var(--shadow);
     background: var(--bg-color);
-    margin-top: 30px;
+    margin: 50px auto; /* căn giữa theo chiều ngang, cách đều top/bottom 50px */
+    max-width: 1400px; /* mở rộng chiều ngang tối đa */
+    width: 95%;        /* chiếm gần toàn bộ chiều ngang */
 }
+
 
 .left-panel,
 .content-panel {
