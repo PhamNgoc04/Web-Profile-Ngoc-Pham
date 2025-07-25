@@ -1420,7 +1420,7 @@ body::-webkit-scrollbar-thumb:hover {
 }
 .filter-btn:hover { color: var(--text-color); }
 .filter-btn.active { background-color: var(--color-primary); color: #000; }
-.project-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.5rem; margin-right: 8px; }
+.project-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.5rem; margin-right: 14px; }
 .project-item {
     background-color: var(--secondary-bg-color);
     border-radius: 10px;
@@ -1601,7 +1601,7 @@ body::-webkit-scrollbar-thumb:hover {
 
     /* === SỬA LỖI CĂN CHỈNH TRANG HOME === */
     .content-panel {
-        padding: 40px;
+        padding: 40px ;
         text-align: center; /* Căn giữa toàn bộ text */
     }
 
@@ -1617,7 +1617,6 @@ body::-webkit-scrollbar-thumb:hover {
         height: 350px;
     }
 
-    /* === SỬA LỖI CĂN CHỈNH TRANG ABOUT === */
     /* === SỬA LỖI CĂN CHỈNH TRANG ABOUT === */
     .about-section {
         padding: 30px 20px;
