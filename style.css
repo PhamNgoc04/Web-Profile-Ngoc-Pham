@@ -1273,7 +1273,6 @@ body::-webkit-scrollbar-thumb:hover {
     width: 95%;        /* chiếm gần toàn bộ chiều ngang */
 }
 
-
 .left-panel,
 .content-panel {
     flex: 1 1 50%;
